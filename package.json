@@ -1,0 +1,20 @@
+{
+  "name": "ydb-embedded-ui-components",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@yandex-cloud/eslint-config": "^1.0.0",
+    "@yandex-cloud/prettier-config": "^1.0.0",
+    "@yandex-cloud/stylelint-config": "^1.1.0",
+    "@yandex-cloud/tsconfig": "^1.0.0",
+    "eslint": "^8.11.0",
+    "prettier": "^2.5.1",
+    "stylelint": "^14.5.3",
+    "typescript": "^4.6.2"
+  }
+}
