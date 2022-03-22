@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {NavigationTreeNodeType, NavigationTreeProps} from './types';
-import {NavigationTreeState, NavigationTreeAction, NavigationTreeActionType} from './state';
+import {NavigationTreeState, NavigationTreeNodeType, NavigationTreeProps} from './types';
+import {NavigationTreeAction, NavigationTreeActionType} from './state';
 
 import {DatabaseIcon} from '../icons/Database';
 import {FolderIcon} from '../icons/Folder';

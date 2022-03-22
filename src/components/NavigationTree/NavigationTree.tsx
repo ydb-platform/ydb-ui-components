@@ -5,7 +5,7 @@ import {reducer, getDefaultNodeState} from './state';
 import {NavigationTreeNode} from './NavigationTreeNode';
 import {NavigationTreeDirectory} from './NavigationTreeDirectory';
 
-export {NavigationTreeProps};
+export type {NavigationTreeProps};
 
 export function NavigationTree({
     rootState: partialRootState,

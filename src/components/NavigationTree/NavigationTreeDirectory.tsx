@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {NavigationTreeProps} from './types';
-import {NavigationTreeState, NavigationTreeAction, NavigationTreeActionType} from './state';
+import {NavigationTreeState, NavigationTreeProps} from './types';
+import {NavigationTreeAction, NavigationTreeActionType} from './state';
 import {NavigationTreeNode} from './NavigationTreeNode';
 import {LoaderView} from './LoaderView/LoaderView';
 import {ErrorView} from './ErrorView/ErrorView';
