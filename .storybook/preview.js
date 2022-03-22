@@ -1,8 +1,12 @@
 import '@yandex-cloud/uikit/styles/styles.scss';
 
 import React from 'react';
+import {I18N} from '@yandex-cloud/i18n';
 import {ThemeProvider} from '@yandex-cloud/uikit';
 import {withTheme} from './decorators/withTheme';
+import {withLang} from './decorators/withLang';
+
+I18N.setDefaultLang(I18N.LANGS.ru);
 
 const withContextProvider = (Story, context) => {
     const theme = context.globals.theme;
@@ -21,7 +25,7 @@ const withContextProvider = (Story, context) => {
     );
 };
 
-export const decorators = [withTheme, withContextProvider];
+export const decorators = [withTheme, withLang, withContextProvider];
 
 export const parameters = {
     jsx: {showFunctions: true},
@@ -43,6 +47,18 @@ export const globalTypes = {
             items: [
                 {value: 'light', icon: 'circlehollow', title: 'Light'},
                 {value: 'dark', icon: 'circle', title: 'Dark'},
+            ],
+        },
+    },
+    lang: {
+        name: 'Language',
+        description: 'Global language for components',
+        defaultValue: 'ru',
+        toolbar: {
+            icon: 'globe',
+            items: [
+                {value: 'ru', right: '🇷🇺', title: 'Русский'},
+                {value: 'en', right: '🇬🇧', title: 'English'},
             ],
         },
     },
