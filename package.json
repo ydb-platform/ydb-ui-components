@@ -5,16 +5,37 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "start-storybook -p 7002"
+  },
+  "dependencies": {
+    "bem-cn-lite": "^4.1.0"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.4.19",
+    "@types/react-treeview": "^0.4.3",
     "@yandex-cloud/eslint-config": "^1.0.0",
     "@yandex-cloud/prettier-config": "^1.0.0",
     "@yandex-cloud/stylelint-config": "^1.1.0",
     "@yandex-cloud/tsconfig": "^1.0.0",
+    "@yandex-cloud/uikit": "^1.8.0",
+    "css-loader": "^5.2.7",
     "eslint": "^8.11.0",
     "prettier": "^2.5.1",
+    "react": "^16.14.0",
+    "react-docgen-typescript": "^2.2.2",
+    "react-dom": "^16.14.0",
+    "react-treeview": "^0.4.7",
+    "sass": "^1.49.9",
+    "sass-loader": "^10.2.1",
+    "style-loader": "^2.0.0",
     "stylelint": "^14.5.3",
     "typescript": "^4.6.2"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   }
 }
