@@ -1,1 +1,1 @@
-# ydb-embedded-ui-components
+# ydb-ui-components
