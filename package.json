@@ -19,7 +19,6 @@
     "start": "start-storybook -p 7002"
   },
   "dependencies": {
-    "@yandex-cloud/i18n": "^0.2.2",
     "bem-cn-lite": "^4.1.0"
   },
   "devDependencies": {
@@ -33,6 +32,7 @@
     "@types/react-treeview": "^0.4.3",
     "@yandex-cloud/browserslist-config": "^1.0.1",
     "@yandex-cloud/eslint-config": "^1.0.0",
+    "@yandex-cloud/i18n": "^0.4.0",
     "@yandex-cloud/prettier-config": "^1.0.0",
     "@yandex-cloud/stylelint-config": "^1.1.0",
     "@yandex-cloud/tsconfig": "^1.0.0",
@@ -58,6 +58,7 @@
     "typescript": "^4.6.2"
   },
   "peerDependencies": {
+    "@yandex-cloud/i18n": "^0.4.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
