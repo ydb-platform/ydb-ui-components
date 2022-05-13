@@ -19,7 +19,8 @@
     "lint:js": "eslint --ext .js,.jsx,.ts,.tsx .",
     "lint:styles": "stylelint 'src/**/*.scss'",
     "lint": "run-p lint:*",
-    "start": "start-storybook -p 7002"
+    "start": "start-storybook -p 7002",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "bem-cn-lite": "^4.1.0"
