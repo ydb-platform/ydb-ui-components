@@ -38,12 +38,16 @@ task('ts-declaration', () => {
         .pipe(dest(path.resolve(BUILD_DIR)));
 });
 
+task('i18n', () => {
+    return src('src/**/i18n/*.json').pipe(dest(path.resolve(BUILD_DIR)));
+});
+
 task('styles', () => {
     return src(['src/**/*.scss', '!src/**/__stories__/**/*.scss'])
         .pipe(sass().on('error', sass.logError))
         .pipe(dest(path.resolve(BUILD_DIR)));
 });
 
-task('build', series(['clean', parallel(['ts-compile', 'ts-declaration']), 'styles']));
+task('build', series(['clean', parallel(['ts-compile', 'ts-declaration', 'i18n']), 'styles']));
 
 task('default', series(['build']));
