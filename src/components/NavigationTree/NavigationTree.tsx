@@ -34,7 +34,7 @@ export function NavigationTree({
             <NavigationTreeDirectory
                 state={state}
                 dispatch={dispatch}
-                path=""
+                path={rootState.path}
                 fetchPath={fetchPath}
                 activePath={activePath}
                 onItemActivate={onActivePathUpdate}
