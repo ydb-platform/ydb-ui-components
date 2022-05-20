@@ -39,6 +39,7 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
                     loading: true,
                     loaded: false,
                     error: false,
+                    children: [],
                 },
             };
         case NavigationTreeActionType.FinishLoading: {

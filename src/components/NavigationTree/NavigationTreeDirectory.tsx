@@ -15,6 +15,7 @@ export interface NavigationTreeDirectoryProps {
     activePath?: string;
     onItemActivate?: (itemPath: string) => void;
     getActions?: NavigationTreeProps['getActions'];
+    cache?: boolean;
 }
 
 export function NavigationTreeDirectory({
@@ -25,30 +26,33 @@ export function NavigationTreeDirectory({
     activePath,
     onItemActivate,
     getActions,
+    cache = true,
 }: NavigationTreeDirectoryProps) {
     const nodeState = state[path];
 
     React.useEffect(() => {
-        if (!nodeState.loaded && !nodeState.loading) {
-            dispatch({
-                type: NavigationTreeActionType.StartLoading,
-                payload: {path},
-            });
-
-            fetchPath(path)
-                .then((data) => {
-                    dispatch({
-                        type: NavigationTreeActionType.FinishLoading,
-                        payload: {path, data},
-                    });
-                })
-                .catch((error) => {
-                    dispatch({
-                        type: NavigationTreeActionType.FinishLoading,
-                        payload: {path, error},
-                    });
-                });
+        if ((nodeState.loaded && cache) || nodeState.loading) {
+            return;
         }
+
+        dispatch({
+            type: NavigationTreeActionType.StartLoading,
+            payload: {path},
+        });
+
+        fetchPath(path)
+            .then((data) => {
+                dispatch({
+                    type: NavigationTreeActionType.FinishLoading,
+                    payload: {path, data},
+                });
+            })
+            .catch((error) => {
+                dispatch({
+                    type: NavigationTreeActionType.FinishLoading,
+                    payload: {path, error},
+                });
+            });
     }, []);
 
     if (nodeState.loading) {
@@ -76,6 +80,7 @@ export function NavigationTreeDirectory({
                                 activePath={activePath}
                                 onItemActivate={onItemActivate}
                                 getActions={getActions}
+                                cache={cache}
                             />
                         );
                     }
