@@ -28,4 +28,5 @@ export interface NavigationTreeProps<D = any> {
     getActions?: (path: string, type: NavigationTreeNodeType) => DropdownMenuItemMixed<D>[];
     activePath?: string;
     onActivePathUpdate?: (activePath: string) => void;
+    cache?: boolean;
 }
