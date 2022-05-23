@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.1](https://github.com/ydb-platform/ydb-ui-components/compare/v1.2.0...v1.2.1) (2022-05-23)
+
+
+### Bug Fixes
+
+* add missing component export ([9b71eb7](https://github.com/ydb-platform/ydb-ui-components/commit/9b71eb78f8c2adfd773e45edddc41ea97c64aa35))
+
 ## [1.2.0](https://github.com/ydb-platform/ydb-ui-components/compare/v1.1.3...v1.2.0) (2022-05-23)
 
 
