@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.3](https://github.com/ydb-platform/ydb-ui-components/compare/v1.2.2...v1.2.3) (2022-05-23)
+
+
+### Bug Fixes
+
+* **NavigationTree:** expand tree to initial active path ([6a84dfb](https://github.com/ydb-platform/ydb-ui-components/commit/6a84dfb8b89f8411bd5b11f7b18582ed547c6d0d))
+
 ### [1.2.2](https://github.com/ydb-platform/ydb-ui-components/compare/v1.2.1...v1.2.2) (2022-05-23)
 
 
