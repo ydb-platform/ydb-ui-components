@@ -63,8 +63,14 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
                     const name = item.name;
                     const type = item.type;
 
+                    // expand the tree according to the active path
+                    // prioritize the existing state to expand the tree only on first load
+                    const {activePath = ''} = action.payload;
+                    const collapsed = state[path]?.collapsed ?? !activePath.startsWith(`${path}/`);
+
                     newState[path] = {
                         ...getDefaultNodeState(),
+                        collapsed,
                         path,
                         name,
                         type,
