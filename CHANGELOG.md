@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.3](https://github.com/ydb-platform/ydb-ui-components/compare/v1.1.2...v1.1.3) (2022-05-23)
+
+
+### Bug Fixes
+
+* add @yandex-cloud/uikit to peer deps ([61d5628](https://github.com/ydb-platform/ydb-ui-components/commit/61d5628088528e5c532c096bacebb2eca3f68206))
+
 ### [1.1.2](https://github.com/ydb-platform/ydb-ui-components/compare/v1.1.1...v1.1.2) (2022-05-19)
 
 
