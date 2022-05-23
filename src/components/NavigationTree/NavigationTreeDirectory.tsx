@@ -44,7 +44,7 @@ export function NavigationTreeDirectory({
             .then((data) => {
                 dispatch({
                     type: NavigationTreeActionType.FinishLoading,
-                    payload: {path, data},
+                    payload: {path, activePath, data},
                 });
             })
             .catch((error) => {
