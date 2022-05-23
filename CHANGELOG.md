@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/ydb-platform/ydb-ui-components/compare/v1.1.3...v1.2.0) (2022-05-23)
+
+
+### Features
+
+* a param to always refetch nodes data ([6cee325](https://github.com/ydb-platform/ydb-ui-components/commit/6cee32581d0a16ecc8bb742eb8f2c27d2d9a1cad))
+
 ### [1.1.3](https://github.com/ydb-platform/ydb-ui-components/compare/v1.1.2...v1.1.3) (2022-05-23)
 
 
