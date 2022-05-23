@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.2](https://github.com/ydb-platform/ydb-ui-components/compare/v1.2.1...v1.2.2) (2022-05-23)
+
+
+### Bug Fixes
+
+* add missing index file for TreeView ([7496d9b](https://github.com/ydb-platform/ydb-ui-components/commit/7496d9b7074d6ee5c2f280030ca38cc9373b0f34))
+
 ### [1.2.1](https://github.com/ydb-platform/ydb-ui-components/compare/v1.2.0...v1.2.1) (2022-05-23)
 
 
