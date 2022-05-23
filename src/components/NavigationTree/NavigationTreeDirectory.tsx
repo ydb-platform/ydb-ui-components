@@ -26,7 +26,7 @@ export function NavigationTreeDirectory({
     activePath,
     onItemActivate,
     getActions,
-    cache = true,
+    cache,
 }: NavigationTreeDirectoryProps) {
     const nodeState = state[path];
 

@@ -13,7 +13,7 @@ export function NavigationTree({
     getActions,
     activePath,
     onActivePathUpdate,
-    cache,
+    cache = true,
 }: NavigationTreeProps) {
     const [state, dispatch] = React.useReducer(reducer, {
         [partialRootState.path]: {
