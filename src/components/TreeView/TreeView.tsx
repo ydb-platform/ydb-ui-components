@@ -43,7 +43,11 @@ export function TreeView({
             {actions && actions.length > 0 && (
                 <div className={b('actions')}>
                     <DropdownMenu
-                        defaultSwitcherProps={{view: 'clear', size: 's'}}
+                        defaultSwitcherProps={{
+                            view: 'flat-secondary',
+                            size: 's',
+                            pin: 'brick-brick',
+                        }}
                         items={actions}
                     />
                 </div>
