@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/ydb-platform/ydb-ui-components/compare/v1.2.3...v2.0.0) (2022-05-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* major version update of peer dependency @yandex-cloud/uikit, see changelog here: https://github.com/yandex-cloud/uikit/blob/main/CHANGELOG_V2.md
+
+### chore
+
+* update @yandex-cloud/uikit to v2.3.1 ([ba67dd6](https://github.com/ydb-platform/ydb-ui-components/commit/ba67dd6f8f01b2a58ed67bd064ad8962f2f8a244))
+* update @yandex-cloud/i18n to v0.6.0 ([237c2cd](https://github.com/ydb-platform/ydb-ui-components/commit/237c2cdd5064565da2cf62fbebb0fc0ae1195d0e))
+
 ### [1.2.3](https://github.com/ydb-platform/ydb-ui-components/compare/v1.2.2...v1.2.3) (2022-05-23)
 
 
