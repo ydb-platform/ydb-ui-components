@@ -1,12 +1,14 @@
 import '@yandex-cloud/uikit/styles/styles.scss';
 
 import React from 'react';
-import {I18N} from '@yandex-cloud/i18n';
 import {ThemeProvider} from '@yandex-cloud/uikit';
+
+import {i18n} from '../src/components/i18n';
+
 import {withTheme} from './decorators/withTheme';
 import {withLang} from './decorators/withLang';
 
-I18N.setDefaultLang(I18N.LANGS.ru);
+i18n.setLang('ru');
 
 const withContextProvider = (Story, context) => {
     const theme = context.globals.theme;
