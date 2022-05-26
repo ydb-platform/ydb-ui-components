@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.1](https://github.com/ydb-platform/ydb-ui-components/compare/v2.0.0...v2.0.1) (2022-05-26)
+
+
+### chore
+
+* update @yandex-cloud/uikit to 2.4.0 ([663c8d2](https://github.com/ydb-platform/ydb-ui-components/commit/663c8d26c704bd83be97c81f4fd4080a7cfbb3d0))
+
 ## [2.0.0](https://github.com/ydb-platform/ydb-ui-components/compare/v1.2.3...v2.0.0) (2022-05-25)
 
 
