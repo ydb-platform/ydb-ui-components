@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.2](https://github.com/ydb-platform/ydb-ui-components/compare/v2.0.1...v2.0.2) (2022-05-30)
+
+
+### Bug Fixes
+
+* add i18n export ([13a34e0](https://github.com/ydb-platform/ydb-ui-components/commit/13a34e0056a9fa42b5ad02fc41e5323af0ac98e9))
+
 ### [2.0.1](https://github.com/ydb-platform/ydb-ui-components/compare/v2.0.0...v2.0.1) (2022-05-26)
 
 
