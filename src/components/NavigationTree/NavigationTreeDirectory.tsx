@@ -70,7 +70,7 @@ export function NavigationTreeDirectory({
                     const childPath = `${path}/${childName}`;
                     let children;
 
-                    if (state[childPath].type === 'directory') {
+                    if (state[childPath].expandable) {
                         children = (
                             <NavigationTreeDirectory
                                 state={state}

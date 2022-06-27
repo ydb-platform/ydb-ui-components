@@ -5,6 +5,8 @@ export type NavigationTreeNodeType = 'database' | 'directory' | 'table';
 export interface NavigationTreeDataItem {
     name: string;
     type: NavigationTreeNodeType;
+    /** determined by type by default */
+    expandable?: boolean;
 }
 
 export interface NavigationTreeState {
@@ -15,6 +17,8 @@ export interface NavigationTreeNodeState {
     path: string;
     name: string;
     type: NavigationTreeNodeType;
+    /** determined by type by default */
+    expandable?: boolean;
     collapsed: boolean;
     loading: boolean;
     loaded: boolean;
@@ -22,8 +26,13 @@ export interface NavigationTreeNodeState {
     children: string[];
 }
 
+export type NavigationTreeNodePartialState = Omit<
+    NavigationTreeNodeState,
+    'loading' | 'loaded' | 'error' | 'children'
+>;
+
 export interface NavigationTreeProps<D = any> {
-    rootState: Omit<NavigationTreeNodeState, 'loading' | 'loaded' | 'error' | 'children'>;
+    rootState: NavigationTreeNodePartialState;
     fetchPath: (path: string) => Promise<NavigationTreeDataItem[]>;
     getActions?: (path: string, type: NavigationTreeNodeType) => DropdownMenuItemMixed<D>[];
     activePath?: string;

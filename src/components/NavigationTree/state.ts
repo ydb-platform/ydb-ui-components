@@ -1,4 +1,8 @@
-import {NavigationTreeState} from './types';
+import {
+    NavigationTreeNodeState,
+    NavigationTreeNodePartialState,
+    NavigationTreeState,
+} from './types';
 
 export enum NavigationTreeActionType {
     ToggleCollapsed = 'toggle-collapsed',
@@ -18,6 +22,16 @@ export function getDefaultNodeState() {
         loaded: false,
         error: false,
         children: [],
+    };
+}
+
+export function getNodeState(
+    partialState: NavigationTreeNodePartialState,
+): NavigationTreeNodeState {
+    return {
+        ...getDefaultNodeState(),
+        expandable: partialState.type === 'database' || partialState.type === 'directory',
+        ...partialState,
     };
 }
 
@@ -60,21 +74,17 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
 
                 for (const item of action.payload.data) {
                     const path = `${action.payload.path}/${item.name}`;
-                    const name = item.name;
-                    const type = item.type;
 
                     // expand the tree according to the active path
                     // prioritize the existing state to expand the tree only on first load
                     const {activePath = ''} = action.payload;
                     const collapsed = state[path]?.collapsed ?? !activePath.startsWith(`${path}/`);
 
-                    newState[path] = {
-                        ...getDefaultNodeState(),
+                    newState[path] = getNodeState({
+                        ...item,
                         collapsed,
                         path,
-                        name,
-                        type,
-                    };
+                    });
                 }
             }
 
