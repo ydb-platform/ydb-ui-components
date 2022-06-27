@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {NavigationTreeProps} from './types';
-import {reducer, getDefaultNodeState} from './state';
+import {reducer, getNodeState} from './state';
 import {NavigationTreeNode} from './NavigationTreeNode';
 import {NavigationTreeDirectory} from './NavigationTreeDirectory';
 
@@ -16,10 +16,7 @@ export function NavigationTree({
     cache = true,
 }: NavigationTreeProps) {
     const [state, dispatch] = React.useReducer(reducer, {
-        [partialRootState.path]: {
-            ...getDefaultNodeState(),
-            ...partialRootState,
-        },
+        [partialRootState.path]: getNodeState(partialRootState),
     });
     const rootState = state[partialRootState.path];
 

@@ -32,10 +32,6 @@ function renderIcon(type: NavigationTreeNodeType | string, collapsed: boolean) {
     }
 }
 
-function isArrowVisible(type: NavigationTreeNodeType | string) {
-    return type === 'database' || type === 'directory';
-}
-
 export function NavigationTreeNode({
     path,
     state,
@@ -68,7 +64,7 @@ export function NavigationTreeNode({
             collapsed={nodeState.collapsed}
             active={active}
             actions={actions}
-            hasArrow={isArrowVisible(nodeState.type)}
+            hasArrow={nodeState.expandable}
             onClick={handleClick}
             onArrowClick={handleArrowClick}
         >
