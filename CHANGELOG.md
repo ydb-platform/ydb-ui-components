@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/ydb-platform/ydb-ui-components/compare/v2.1.0...v2.2.0) (2022-07-05)
+
+
+### Features
+
+* **NavigationTree:** add index and index_table node types! ([d6ed6ba](https://github.com/ydb-platform/ydb-ui-components/commit/d6ed6bae7e882a6217d4205f931ac3704b8ed9f6))
+
 ## [2.1.0](https://github.com/ydb-platform/ydb-ui-components/compare/v2.0.2...v2.1.0) (2022-06-28)
 
 
