@@ -24,8 +24,10 @@ function renderIcon(type: NavigationTreeNodeType | string, collapsed: boolean) {
         case 'database':
             return <DatabaseIcon height={14} />;
         case 'directory':
+        case 'index':
             return collapsed ? <FolderIcon height={14} /> : <FolderOpenIcon height={14} />;
         case 'table':
+        case 'index_table':
             return <TableIcon height={14} />;
         default:
             return null;
