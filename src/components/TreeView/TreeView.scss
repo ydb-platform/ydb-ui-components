@@ -6,6 +6,8 @@
 $step-offset: 24px;
 
 .ydb-tree-view {
+    --ydb-tree-view-level: 0;
+
     $root: &;
     font-size: 13px;
     line-height: 18px;
@@ -19,6 +21,7 @@ $step-offset: 24px;
         display: flex;
         align-items: center;
         height: 24px;
+        padding-left: calc(#{$step-offset} * var(--ydb-tree-view-level));
         padding-right: 3px;
         border-bottom: 1px solid var(--yc-color-line-solid);
         cursor: pointer;
