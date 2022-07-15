@@ -3,12 +3,12 @@ import '@yandex-cloud/uikit/styles/styles.scss';
 import React from 'react';
 import {ThemeProvider} from '@yandex-cloud/uikit';
 
-import {i18n} from '../src/components/i18n';
+import {configure, Lang} from '../src/utils';
 
 import {withTheme} from './decorators/withTheme';
 import {withLang} from './decorators/withLang';
 
-i18n.setLang('ru');
+configure({lang: Lang.Ru});
 
 const withContextProvider = (Story, context) => {
     const theme = context.globals.theme;
