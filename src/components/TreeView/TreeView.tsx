@@ -16,7 +16,10 @@ export interface TreeViewProps {
     onArrowClick?: () => void;
     hasArrow?: boolean;
     actions?: DropdownMenuItemMixed<any>[];
+    level?: number;
 }
+
+const TREE_LEVEL_CSS_VAR = '--ydb-tree-view-level';
 
 const b = block('ydb-tree-view');
 
@@ -31,6 +34,7 @@ export function TreeView({
     onArrowClick,
     hasArrow = false,
     actions,
+    level,
 }: TreeViewProps) {
     const rootRef = React.useRef<HTMLDivElement>(null);
 
@@ -84,7 +88,11 @@ export function TreeView({
     }, [onClick]);
 
     return (
-        <div ref={rootRef} className={b({'no-arrow': !hasArrow})}>
+        <div
+            ref={rootRef}
+            className={b({'no-arrow': !hasArrow})}
+            style={{[TREE_LEVEL_CSS_VAR]: level} as React.CSSProperties}
+        >
             <ReactTreeView
                 collapsed={collapsed}
                 itemClassName={b('item', {active})}
