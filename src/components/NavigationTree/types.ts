@@ -24,6 +24,13 @@ export interface NavigationTreeNodeState {
     loaded: boolean;
     error: boolean;
     children: string[];
+    level?: number;
+}
+
+export interface NavigationTreeServiceNode {
+    path: string;
+    status: 'loading' | 'error' | 'empty';
+    level?: number;
 }
 
 export type NavigationTreeNodePartialState = Omit<
@@ -38,4 +45,5 @@ export interface NavigationTreeProps<D = any> {
     activePath?: string;
     onActivePathUpdate?: (activePath: string) => void;
     cache?: boolean;
+    virtualize?: boolean;
 }

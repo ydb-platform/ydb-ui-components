@@ -11,12 +11,15 @@ import {TreeView} from '../TreeView/TreeView';
 
 export interface NavigationTreeNodeProps {
     path: string;
+    fetchPath: NavigationTreeProps['fetchPath'];
+    activePath?: string;
     state: NavigationTreeState;
+    level?: number;
     dispatch: React.Dispatch<NavigationTreeAction>;
     children?: React.ReactNode;
-    active?: boolean;
     onActivate?: (path: string) => void;
     getActions?: NavigationTreeProps['getActions'];
+    cache?: boolean;
 }
 
 function renderIcon(type: NavigationTreeNodeType | string, collapsed: boolean) {
@@ -36,14 +39,53 @@ function renderIcon(type: NavigationTreeNodeType | string, collapsed: boolean) {
 
 export function NavigationTreeNode({
     path,
+    fetchPath,
+    activePath,
     state,
+    level,
     dispatch,
     children,
-    active,
     onActivate,
     getActions,
+    cache,
 }: NavigationTreeNodeProps) {
     const nodeState = state[path];
+
+    React.useEffect(() => {
+        if (nodeState.collapsed) {
+            if (!cache) {
+                dispatch({
+                    type: NavigationTreeActionType.ResetNode,
+                    payload: {path},
+                });
+            }
+
+            return;
+        }
+
+        if (nodeState.loaded || nodeState.loading) {
+            return;
+        }
+
+        dispatch({
+            type: NavigationTreeActionType.StartLoading,
+            payload: {path},
+        });
+
+        fetchPath(path)
+            .then((data) => {
+                dispatch({
+                    type: NavigationTreeActionType.FinishLoading,
+                    payload: {path, activePath, data},
+                });
+            })
+            .catch((error) => {
+                dispatch({
+                    type: NavigationTreeActionType.FinishLoading,
+                    payload: {path, error},
+                });
+            });
+    }, [nodeState.collapsed]);
 
     const handleClick = React.useCallback(() => {
         if (onActivate) {
@@ -64,11 +106,12 @@ export function NavigationTreeNode({
             name={nodeState.name}
             icon={renderIcon(nodeState.type, nodeState.collapsed)}
             collapsed={nodeState.collapsed}
-            active={active}
+            active={nodeState.path === activePath}
             actions={actions}
             hasArrow={nodeState.expandable}
             onClick={handleClick}
             onArrowClick={handleArrowClick}
+            level={level}
         >
             {children}
         </TreeView>

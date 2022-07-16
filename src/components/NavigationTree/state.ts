@@ -1,13 +1,16 @@
-import {
+import type {
     NavigationTreeNodeState,
     NavigationTreeNodePartialState,
     NavigationTreeState,
+    NavigationTreeServiceNode,
 } from './types';
+import {getServiceNode, traverseDFS} from './utils';
 
 export enum NavigationTreeActionType {
     ToggleCollapsed = 'toggle-collapsed',
     StartLoading = 'start-loading',
     FinishLoading = 'finish-loading',
+    ResetNode = 'reset-node',
 }
 
 export interface NavigationTreeAction {
@@ -90,7 +93,33 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
 
             return newState;
         }
+        case NavigationTreeActionType.ResetNode:
+            return {
+                ...state,
+                [action.payload.path]: {
+                    ...state[action.payload.path],
+                    ...getDefaultNodeState(),
+                },
+            };
         default:
             return state;
     }
+}
+
+export function selectTreeAsList(state: NavigationTreeState, rootPath: string) {
+    const list: (NavigationTreeNodeState | NavigationTreeServiceNode)[] = [];
+
+    traverseDFS(state, rootPath, (node, level) => {
+        list.push({
+            ...node,
+            level,
+        });
+
+        const serviceNode = getServiceNode(node, level);
+        if (serviceNode) {
+            list.push(serviceNode);
+        }
+    });
+
+    return list;
 }
