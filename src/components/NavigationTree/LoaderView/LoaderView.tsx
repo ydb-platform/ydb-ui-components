@@ -6,9 +6,13 @@ import {TreeView} from '../../TreeView/TreeView';
 
 import './LoaderView.scss';
 
+interface LoaderViewProps {
+    level?: number;
+}
+
 const b = block('ydb-navigation-tree-view-loader');
 
-export function LoaderView() {
+export function LoaderView({level}: LoaderViewProps) {
     return (
         <TreeView
             name={
@@ -16,6 +20,7 @@ export function LoaderView() {
                     <Spin size="xs" />
                 </div>
             }
+            level={level}
         />
     );
 }
