@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/ydb-platform/ydb-ui-components/compare/v2.2.0...v2.3.0) (2022-07-18)
+
+
+### Features
+
+* **i18n:** add configure function ([c48e58e](https://github.com/ydb-platform/ydb-ui-components/commit/c48e58e33e361cf4f507190cd0a8d0a896975fb1))
+
 ## [2.2.0](https://github.com/ydb-platform/ydb-ui-components/compare/v2.1.0...v2.2.0) (2022-07-05)
 
 
