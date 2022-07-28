@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.4.0](https://github.com/ydb-platform/ydb-ui-components/compare/v2.3.0...v2.4.0) (2022-07-28)
+
+
+### Features
+
+* **NavigationTree:** virtualized render ([7388ff5](https://github.com/ydb-platform/ydb-ui-components/commit/7388ff5a5b05ffa30b86fb4ae2d8e52a7bd9dad8))
+* **TreeView:** a prop to determine tree view nesting level ([2e5d42a](https://github.com/ydb-platform/ydb-ui-components/commit/2e5d42abf78e81fdd61747958822dc3b96eab42f))
+
 ## [2.3.0](https://github.com/ydb-platform/ydb-ui-components/compare/v2.2.0...v2.3.0) (2022-07-18)
 
 
