@@ -2,13 +2,8 @@ import React from 'react';
 
 export function TableIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            fill="currentColor"
-            {...props}
-        >
-            <path d="M448 32C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H448zM224 256V160H64V256H224zM64 320V416H224V320H64zM288 416H448V320H288V416zM448 256V160H288V256H448z" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" {...props}>
+            <path d="M12.7812 2.4375H2.21875C1.5332 2.4375 1 2.99609 1 3.65625V12.5938C1 13.2793 1.5332 13.8125 2.21875 13.8125H12.7812C13.4414 13.8125 14 13.2793 14 12.5938V3.65625C14 2.99609 13.4414 2.4375 12.7812 2.4375ZM6.6875 12.1875H2.625V9.75H6.6875V12.1875ZM6.6875 8.125H2.625V5.6875H6.6875V8.125ZM12.375 12.1875H8.3125V9.75H12.375V12.1875ZM12.375 8.125H8.3125V5.6875H12.375V8.125Z" />
         </svg>
     );
 }

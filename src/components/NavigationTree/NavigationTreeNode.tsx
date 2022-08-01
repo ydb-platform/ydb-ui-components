@@ -7,6 +7,9 @@ import {DatabaseIcon} from '../icons/Database';
 import {FolderIcon} from '../icons/Folder';
 import {FolderOpenIcon} from '../icons/FolderOpen';
 import {TableIcon} from '../icons/Table';
+import {TopicIcon} from '../icons/Topic';
+import {IndexIcon} from '../icons/Index';
+import {ColumnTableIcon} from '../icons/ColumnTable';
 import {TreeView} from '../TreeView/TreeView';
 
 export interface NavigationTreeNodeProps {
@@ -25,13 +28,19 @@ export interface NavigationTreeNodeProps {
 function renderIcon(type: NavigationTreeNodeType | string, collapsed: boolean) {
     switch (type) {
         case 'database':
+            // this icon is larger than the others, therefore 14 for a better fit
             return <DatabaseIcon height={14} />;
         case 'directory':
+            return collapsed ? <FolderIcon height={16} /> : <FolderOpenIcon height={16} />;
         case 'index':
-            return collapsed ? <FolderIcon height={14} /> : <FolderOpenIcon height={14} />;
+            return <IndexIcon height={16} />;
         case 'table':
         case 'index_table':
-            return <TableIcon height={14} />;
+            return <TableIcon height={16} />;
+        case 'column_table':
+            return <ColumnTableIcon height={16} />;
+        case 'topic':
+            return <TopicIcon height={16} />;
         default:
             return null;
     }
