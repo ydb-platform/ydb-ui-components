@@ -1,6 +1,13 @@
 import {DropdownMenuItemMixed} from '@yandex-cloud/uikit';
 
-export type NavigationTreeNodeType = 'database' | 'directory' | 'table' | 'index_table' | 'index';
+export type NavigationTreeNodeType =
+    | 'database'
+    | 'directory'
+    | 'table'
+    | 'column_table'
+    | 'index_table'
+    | 'index'
+    | 'topic';
 
 export interface NavigationTreeDataItem {
     name: string;
