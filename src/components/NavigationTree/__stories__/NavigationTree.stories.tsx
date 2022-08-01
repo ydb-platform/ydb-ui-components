@@ -72,13 +72,18 @@ async function fetchPath(path: string) {
             {
                 name: 'table_1',
                 type: 'table',
+                expandable: true,
             },
             {
                 name: 'table_2',
-                type: 'table',
+                type: 'column_table',
             },
             {
                 name: 'table_3',
+                type: 'topic',
+            },
+            {
+                name: 'table_4',
                 type: 'table',
             },
         ];
@@ -96,7 +101,7 @@ async function fetchPath(path: string) {
         items = [
             {
                 name: 'table_3_1',
-                type: 'table',
+                type: 'index',
             },
             {
                 name: 'table_3_2',
@@ -105,6 +110,25 @@ async function fetchPath(path: string) {
             {
                 name: 'table_3_3',
                 type: 'table',
+            },
+        ];
+    }
+
+    if (path === '/table_1') {
+        items = [
+            {
+                name: 'table_1_index',
+                type: 'index',
+                expandable: true,
+            },
+        ];
+    }
+
+    if (path === '/table_1/table_1_index') {
+        items = [
+            {
+                name: 'table_1_index_impl',
+                type: 'index_table',
             },
         ];
     }
