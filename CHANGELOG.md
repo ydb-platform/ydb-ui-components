@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.1](https://github.com/ydb-platform/ydb-ui-components/compare/v2.4.0...v2.4.1) (2022-08-02)
+
+
+### Bug Fixes
+
+* **NavigationTree:** add node types & update icons ([909b560](https://github.com/ydb-platform/ydb-ui-components/commit/909b5607b6309cb42401afdb7b869f2a2e8ab908))
+
 ## [2.4.0](https://github.com/ydb-platform/ydb-ui-components/compare/v2.3.0...v2.4.0) (2022-07-28)
 
 
