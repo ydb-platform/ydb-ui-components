@@ -1,4 +1,4 @@
-import {DropdownMenuItemMixed} from '@yandex-cloud/uikit';
+import {DropdownMenuItemMixed} from '@gravity-ui/uikit';
 
 export type NavigationTreeNodeType =
     | 'database'

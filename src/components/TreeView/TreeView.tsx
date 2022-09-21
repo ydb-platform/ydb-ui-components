@@ -1,7 +1,7 @@
 import React from 'react';
 import block from 'bem-cn-lite';
 import ReactTreeView from 'react-treeview';
-import {DropdownMenu, DropdownMenuItemMixed} from '@yandex-cloud/uikit';
+import {DropdownMenu, DropdownMenuItemMixed} from '@gravity-ui/uikit';
 
 import './TreeView.scss';
 

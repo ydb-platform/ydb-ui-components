@@ -1,7 +1,7 @@
-import '@yandex-cloud/uikit/styles/styles.scss';
+import '@gravity-ui/uikit/styles/styles.scss';
 
 import React from 'react';
-import {ThemeProvider} from '@yandex-cloud/uikit';
+import {ThemeProvider} from '@gravity-ui/uikit';
 
 import {configure, Lang} from '../src/utils';
 

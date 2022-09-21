@@ -39,13 +39,13 @@
     "@gravity-ui/prettier-config": "^1.0.1",
     "@gravity-ui/stylelint-config": "^1.0.1",
     "@gravity-ui/tsconfig": "^1.0.0",
+    "@gravity-ui/uikit": "^3.0.1",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.4.19",
     "@types/react-list": "^0.8.7",
     "@types/react-treeview": "^0.4.3",
     "@yandex-cloud/browserslist-config": "^1.0.1",
-    "@yandex-cloud/uikit": "^2.4.0",
     "css-loader": "^5.2.7",
     "eslint": "^8.11.0",
     "gulp": "^4.0.2",
@@ -68,7 +68,7 @@
   },
   "peerDependencies": {
     "@yandex-cloud/browserslist-config": "^1.0.1",
-    "@yandex-cloud/uikit": "^2.4.0",
+    "@gravity-ui/uikit": "^3.0.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
