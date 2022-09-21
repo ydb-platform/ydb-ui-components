@@ -5,7 +5,7 @@ A set of React components used in YDB interfaces.
 ## Install
 
 ```shell
-npm install --save-dev ydb-ui-components @yandex-cloud/uikit @yandex-cloud/browserslist-config
+npm install --save-dev ydb-ui-components @gravity-ui/uikit @yandex-cloud/browserslist-config
 ```
 
 ## I18N

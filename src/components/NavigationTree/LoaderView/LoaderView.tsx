@@ -1,6 +1,6 @@
 import React from 'react';
 import block from 'bem-cn-lite';
-import {Spin} from '@yandex-cloud/uikit';
+import {Spin} from '@gravity-ui/uikit';
 
 import {TreeView} from '../../TreeView/TreeView';
 
