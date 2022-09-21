@@ -1,5 +1,30 @@
 # Changelog
 
+## [3.0.0](https://github.com/ydb-platform/ydb-ui-components/compare/v2.4.1...v3.0.0) (2022-09-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* peer deps update: migrated from `@yandex-cloud/uikit` to `@gravity-ui/uikit`
+* updated i18n, and removed it from peer deps
+* removed deprecated i18n instance export
+
+#### Setting language in ydb-ui-components
+
+**v2**
+```js
+import {i18n} from 'ydb-ui-components';
+
+i18n.setLang('en');
+```
+
+**v3**
+```js
+import {configure} from 'ydb-ui-components';
+
+configure({lang: 'en'});
+```
+
 ## [2.4.1](https://github.com/ydb-platform/ydb-ui-components/compare/v2.4.0...v2.4.1) (2022-08-02)
 
 
