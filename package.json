@@ -23,6 +23,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
+    "@gravity-ui/i18n": "^1.0.0",
     "bem-cn-lite": "^4.1.0",
     "react-list": "^0.8.17",
     "react-treeview": "^0.4.7"
@@ -44,7 +45,6 @@
     "@types/react-list": "^0.8.7",
     "@types/react-treeview": "^0.4.3",
     "@yandex-cloud/browserslist-config": "^1.0.1",
-    "@yandex-cloud/i18n": "^0.6.0",
     "@yandex-cloud/uikit": "^2.4.0",
     "css-loader": "^5.2.7",
     "eslint": "^8.11.0",
@@ -68,7 +68,6 @@
   },
   "peerDependencies": {
     "@yandex-cloud/browserslist-config": "^1.0.1",
-    "@yandex-cloud/i18n": "^0.6.0",
     "@yandex-cloud/uikit": "^2.4.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
