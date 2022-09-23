@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/ydb-platform/ydb-ui-components/compare/v3.0.0...v3.0.1) (2022-09-23)
+
+
+### Bug Fixes
+
+* **NavigatioinTree:** update icons ([0d0674d](https://github.com/ydb-platform/ydb-ui-components/commit/0d0674dfc1b14bf8115135ee75090a7f967da2d4))
+
 ## [3.0.0](https://github.com/ydb-platform/ydb-ui-components/compare/v2.4.1...v3.0.0) (2022-09-21)
 
 
