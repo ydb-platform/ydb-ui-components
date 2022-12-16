@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/ydb-platform/ydb-ui-components/compare/v3.0.1...v3.0.2) (2022-12-16)
+
+
+### Bug Fixes
+
+* icons fill and clip rule in camelCase ([04638fc](https://github.com/ydb-platform/ydb-ui-components/commit/04638fc41279557d5e72d909995cbaf3f71566a0))
+
 ## [3.0.1](https://github.com/ydb-platform/ydb-ui-components/compare/v3.0.0...v3.0.1) (2022-09-23)
 
 
