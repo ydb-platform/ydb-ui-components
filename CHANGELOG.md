@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.3](https://github.com/ydb-platform/ydb-ui-components/compare/v3.0.2...v3.0.3) (2023-02-17)
+
+
+### Bug Fixes
+
+* **NavigationTree:** update IndexTable icon ([1deab3e](https://github.com/ydb-platform/ydb-ui-components/commit/1deab3eda7611faa4b25c80493f31fff821c9c80))
+
 ## [3.0.2](https://github.com/ydb-platform/ydb-ui-components/compare/v3.0.1...v3.0.2) (2022-12-16)
 
 
