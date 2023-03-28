@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.1.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.0.3...v3.1.0) (2023-03-28)
+
+
+### chore
+
+* update @gravity-ui/uikit to 4.3.0 ([6482a17](https://github.com/ydb-platform/ydb-ui-components/commit/6482a1747285730a8650b4cadc4f9c8040dec0ff))
+* update react, react-dom to 18.2.0 ([aca9cbf](https://github.com/ydb-platform/ydb-ui-components/commit/aca9cbfa8a0825c3e180b310a825dcc5ebe13eb0))
+* update peerDependencies ([aa131fd](https://github.com/ydb-platform/ydb-ui-components/commit/aa131fdb0819e9a40937329ceef9d7093c4121da))
+
 ## [3.0.3](https://github.com/ydb-platform/ydb-ui-components/compare/v3.0.2...v3.0.3) (2023-02-17)
 
 
