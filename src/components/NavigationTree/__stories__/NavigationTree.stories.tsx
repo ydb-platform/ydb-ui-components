@@ -75,16 +75,24 @@ async function fetchPath(path: string) {
                 expandable: true,
             },
             {
-                name: 'table_2',
+                name: 'column_table',
                 type: 'column_table',
             },
             {
-                name: 'table_3',
+                name: 'topic',
                 type: 'topic',
             },
             {
-                name: 'table_4',
+                name: 'table',
                 type: 'table',
+            },
+            {
+                name: 'external_table',
+                type: 'external_table',
+            },
+            {
+                name: 'external_data_source',
+                type: 'external_data_source',
             },
         ];
     }

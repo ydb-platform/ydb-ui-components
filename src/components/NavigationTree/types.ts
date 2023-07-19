@@ -7,7 +7,9 @@ export type NavigationTreeNodeType =
     | 'column_table'
     | 'index_table'
     | 'index'
-    | 'topic';
+    | 'topic'
+    | 'external_table'
+    | 'external_data_source';
 
 export interface NavigationTreeDataItem {
     name: string;

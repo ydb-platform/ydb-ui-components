@@ -10,6 +10,8 @@ import {TableIcon} from '../icons/Table';
 import {TopicIcon} from '../icons/Topic';
 import {IndexIcon} from '../icons/Index';
 import {ColumnTableIcon} from '../icons/ColumnTable';
+import {ExternalTableIcon} from '../icons/ExternalTable';
+import {ExternalDataSourceIcon} from '../icons/ExternalDataSource';
 import {TreeView} from '../TreeView/TreeView';
 
 export interface NavigationTreeNodeProps {
@@ -41,6 +43,10 @@ function renderIcon(type: NavigationTreeNodeType | string, collapsed: boolean) {
             return <ColumnTableIcon height={16} />;
         case 'topic':
             return <TopicIcon height={16} />;
+        case 'external_table':
+            return <ExternalTableIcon height={16} />;
+        case 'external_data_source':
+            return <ExternalDataSourceIcon height={16} />;
         default:
             return null;
     }
