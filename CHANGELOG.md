@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.1.0...v3.2.0) (2023-07-21)
+
+
+### Features
+
+* **NavigationTree:** support external table and data source ([b6334dc](https://github.com/ydb-platform/ydb-ui-components/commit/b6334dc66a073d9584d7b9d106f08e9103246b6a))
+
 ## [3.1.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.0.3...v3.1.0) (2023-03-28)
 
 
