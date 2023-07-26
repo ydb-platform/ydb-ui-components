@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.1](https://github.com/ydb-platform/ydb-ui-components/compare/v3.2.0...v3.2.1) (2023-07-26)
+
+
+### Bug Fixes
+
+* fix clip and fill rules ([#51](https://github.com/ydb-platform/ydb-ui-components/issues/51)) ([13d8f4a](https://github.com/ydb-platform/ydb-ui-components/commit/13d8f4a9be934bac18e704c88674dcb349355938))
+
 ## [3.2.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.1.0...v3.2.0) (2023-07-21)
 
 
