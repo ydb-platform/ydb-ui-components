@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.2](https://github.com/ydb-platform/ydb-ui-components/compare/v3.2.1...v3.2.2) (2023-08-03)
+
+
+### Bug Fixes
+
+* update icons for external table ([#53](https://github.com/ydb-platform/ydb-ui-components/issues/53)) ([928e8f7](https://github.com/ydb-platform/ydb-ui-components/commit/928e8f7d591e7557a9d939f07edbe8ae6ebcdaff))
+
 ## [3.2.1](https://github.com/ydb-platform/ydb-ui-components/compare/v3.2.0...v3.2.1) (2023-07-26)
 
 
