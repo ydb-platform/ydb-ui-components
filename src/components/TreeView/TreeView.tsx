@@ -16,6 +16,7 @@ export interface TreeViewProps {
     onArrowClick?: () => void;
     hasArrow?: boolean;
     actions?: DropdownMenuItemMixed<any>[];
+    options?: JSX.Element;
     level?: number;
 }
 
@@ -34,6 +35,7 @@ export function TreeView({
     onArrowClick,
     hasArrow = false,
     actions,
+    options,
     level,
 }: TreeViewProps) {
     const rootRef = React.useRef<HTMLDivElement>(null);
@@ -46,6 +48,7 @@ export function TreeView({
             </div>
             {actions && actions.length > 0 && (
                 <div className={b('actions')}>
+                    {options}
                     <DropdownMenu
                         defaultSwitcherProps={{
                             view: 'flat-secondary',

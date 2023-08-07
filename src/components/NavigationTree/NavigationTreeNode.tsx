@@ -24,6 +24,7 @@ export interface NavigationTreeNodeProps {
     children?: React.ReactNode;
     onActivate?: (path: string) => void;
     getActions?: NavigationTreeProps['getActions'];
+    getOptions?: NavigationTreeProps['getOptions'];
     cache?: boolean;
 }
 
@@ -62,6 +63,7 @@ export function NavigationTreeNode({
     children,
     onActivate,
     getActions,
+    getOptions,
     cache,
 }: NavigationTreeNodeProps) {
     const nodeState = state[path];
@@ -112,6 +114,10 @@ export function NavigationTreeNode({
         dispatch({type: NavigationTreeActionType.ToggleCollapsed, payload: {path}});
     }, []);
 
+    const options = React.useMemo(() => {
+        return getOptions?.(nodeState.path, nodeState.type);
+    }, [getOptions, nodeState]);
+
     const actions = React.useMemo(() => {
         return getActions?.(nodeState.path, nodeState.type);
     }, [getActions, nodeState]);
@@ -123,6 +129,7 @@ export function NavigationTreeNode({
             collapsed={nodeState.collapsed}
             active={nodeState.path === activePath}
             actions={actions}
+            options={options}
             hasArrow={nodeState.expandable}
             onClick={handleClick}
             onArrowClick={handleArrowClick}
