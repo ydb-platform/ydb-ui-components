@@ -22,7 +22,7 @@ export const Default: Story<NavigationTreeProps> = () => {
             }}
             fetchPath={fetchPath}
             getActions={getActions}
-            getOptions={getOptions}
+            renderAdditionalNodeElements={renderAdditionalNodeElements}
             activePath={activePath}
             onActivePathUpdate={setActivePath}
         />
@@ -220,7 +220,7 @@ function getActions(path: string, type: NavigationTreeNodeType) {
     return [];
 }
 
-function getOptions(path: string, type: NavigationTreeNodeType) {
+function renderAdditionalNodeElements(path: string, type: NavigationTreeNodeType) {
     if (type === 'directory') {
         return (
             <Button
@@ -236,18 +236,16 @@ function getOptions(path: string, type: NavigationTreeNodeType) {
 
     if (type === 'table') {
         return (
-            <>
-                <Button
-                    onClick={() => {
-                        alert(`Table path is "${path}"`);
-                    }}
-                    size="s"
-                >
-                    Show Table
-                </Button>
-            </>
+            <Button
+                onClick={() => {
+                    alert(`Table path is "${path}"`);
+                }}
+                size="s"
+            >
+                Show Table
+            </Button>
         );
     }
 
-    return;
+    return undefined;
 }

@@ -51,7 +51,7 @@ export interface NavigationTreeProps<D = any> {
     rootState: NavigationTreeNodePartialState;
     fetchPath: (path: string) => Promise<NavigationTreeDataItem[]>;
     getActions?: (path: string, type: NavigationTreeNodeType) => DropdownMenuItemMixed<D>[];
-    getOptions?: (path: string, type: NavigationTreeNodeType) => JSX.Element | undefined;
+    renderAdditionalNodeElements?: (path: string, type: NavigationTreeNodeType) => JSX.Element | undefined;
     activePath?: string;
     onActivePathUpdate?: (activePath: string) => void;
     cache?: boolean;
