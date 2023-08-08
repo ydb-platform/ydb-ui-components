@@ -34,6 +34,7 @@ export function NavigationTree({
     rootState: partialRootState,
     fetchPath,
     getActions,
+    renderAdditionalNodeElements,
     activePath,
     onActivePathUpdate,
     cache = true,
@@ -55,6 +56,7 @@ export function NavigationTree({
                 dispatch={dispatch}
                 onActivate={onActivePathUpdate}
                 getActions={getActions}
+                renderAdditionalNodeElements={renderAdditionalNodeElements}
                 cache={cache}
                 level={node.level}
             />

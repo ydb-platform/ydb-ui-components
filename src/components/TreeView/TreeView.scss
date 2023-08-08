@@ -30,7 +30,7 @@ $step-offset: 24px;
             background-color: var(--yc-color-base-simple-hover);
 
             #{$root}__actions {
-                display: block;
+                display: flex;
             }
         }
 
@@ -75,6 +75,10 @@ $step-offset: 24px;
     &__actions {
         display: none;
         margin-left: 6px;
+
+        align-items: center;
+
+        overflow: hidden;
     }
 
     .tree-view_arrow {

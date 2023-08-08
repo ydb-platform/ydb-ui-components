@@ -1,5 +1,6 @@
 import React from 'react';
 import {Meta, Story} from '@storybook/react';
+import {Button} from '@gravity-ui/uikit';
 import {NavigationTreeDataItem, NavigationTreeNodeType} from '../types';
 import {NavigationTree, NavigationTreeProps} from '../NavigationTree';
 
@@ -21,6 +22,7 @@ export const Default: Story<NavigationTreeProps> = () => {
             }}
             fetchPath={fetchPath}
             getActions={getActions}
+            renderAdditionalNodeElements={renderAdditionalNodeElements}
             activePath={activePath}
             onActivePathUpdate={setActivePath}
         />
@@ -216,4 +218,34 @@ function getActions(path: string, type: NavigationTreeNodeType) {
     }
 
     return [];
+}
+
+function renderAdditionalNodeElements(path: string, type: NavigationTreeNodeType) {
+    if (type === 'directory') {
+        return (
+            <Button
+                onClick={() => {
+                    alert(`Directory path is "${path}"`);
+                }}
+                size="s"
+            >
+                Show Directory
+            </Button>
+        );
+    }
+
+    if (type === 'table') {
+        return (
+            <Button
+                onClick={() => {
+                    alert(`Table path is "${path}"`);
+                }}
+                size="s"
+            >
+                Show Table
+            </Button>
+        );
+    }
+
+    return undefined;
 }
