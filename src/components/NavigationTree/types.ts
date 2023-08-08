@@ -8,6 +8,7 @@ export type NavigationTreeNodeType =
     | 'index_table'
     | 'index'
     | 'topic'
+    | 'stream'
     | 'external_table'
     | 'external_data_source';
 
