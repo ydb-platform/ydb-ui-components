@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.1](https://github.com/ydb-platform/ydb-ui-components/compare/v3.3.0...v3.3.1) (2023-08-09)
+
+
+### Bug Fixes
+
+* **NavigationTree:** fix actions overflow ([#58](https://github.com/ydb-platform/ydb-ui-components/issues/58)) ([38c816f](https://github.com/ydb-platform/ydb-ui-components/commit/38c816fc6b5ed3173dfe4c74752ceafff93f8fc5))
+
 ## [3.3.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.2.2...v3.3.0) (2023-08-09)
 
 
