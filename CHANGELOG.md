@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.3.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.2.2...v3.3.0) (2023-08-09)
+
+
+### Features
+
+* **NavigationTree:** add additionalNodeElements to NavigationTree ([#55](https://github.com/ydb-platform/ydb-ui-components/issues/55)) ([d462aaf](https://github.com/ydb-platform/ydb-ui-components/commit/d462aafd8dd61aca3cc17b17f57419af4c7e8910))
+
+
+### Bug Fixes
+
+* **NavigationTree:** add new NavigationTreeNodeType 'stream' ([#57](https://github.com/ydb-platform/ydb-ui-components/issues/57)) ([270f607](https://github.com/ydb-platform/ydb-ui-components/commit/270f607e952f197c51fccd89a313390fdd8f055d))
+
 ## [3.2.2](https://github.com/ydb-platform/ydb-ui-components/compare/v3.2.1...v3.2.2) (2023-08-03)
 
 
