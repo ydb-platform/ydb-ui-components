@@ -131,6 +131,10 @@ async function fetchPath(path: string) {
                 type: 'index',
                 expandable: true,
             },
+            {
+                name: 'stream',
+                type: 'stream',
+            },
         ];
     }
 

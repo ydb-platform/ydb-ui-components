@@ -42,6 +42,7 @@ function renderIcon(type: NavigationTreeNodeType | string, collapsed: boolean) {
             return <TableIcon height={16} />;
         case 'column_table':
             return <ColumnTableIcon height={16} />;
+        case 'stream':
         case 'topic':
             return <TopicIcon height={16} />;
         case 'external_table':
