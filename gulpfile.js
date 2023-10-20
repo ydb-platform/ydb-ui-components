@@ -25,7 +25,6 @@ function compileTs(modules = false) {
                     '@babel/preset-react',
                     '@babel/preset-typescript',
                 ],
-                targets: {esmodules: modules},
             }),
         )
         .pipe(dest(path.resolve(BUILD_DIR, modules ? 'esm' : 'cjs')));
