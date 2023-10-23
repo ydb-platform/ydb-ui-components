@@ -15,15 +15,27 @@ task('clean', (done) => {
     done();
 });
 
-task('ts-compile', () => {
+function compileTs(modules = false) {
     return src(['src/**/*.{ts,tsx}', '!src/**/__stories__/**/*.{ts,tsx}'])
         .pipe(replace(/import '.+\.scss';/g, (match) => match.replace('.scss', '.css')))
         .pipe(
             babel({
-                presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+                presets: [
+                    ['@babel/preset-env', {modules: modules ? false : 'cjs'}],
+                    '@babel/preset-react',
+                    '@babel/preset-typescript',
+                ],
             }),
         )
-        .pipe(dest(path.resolve(BUILD_DIR)));
+        .pipe(dest(path.resolve(BUILD_DIR, modules ? 'esm' : 'cjs')));
+}
+
+task('ts-compile-esm', () => {
+    return compileTs(true);
+});
+
+task('ts-compile-cjs', () => {
+    return compileTs();
 });
 
 task('ts-declaration', () => {
@@ -35,19 +47,30 @@ task('ts-declaration', () => {
 
     return src(['src/**/*.{ts,tsx}', '!src/**/__stories__/**/*.{ts,tsx}'])
         .pipe(tsProject())
-        .pipe(dest(path.resolve(BUILD_DIR)));
+        .pipe(dest(path.resolve(BUILD_DIR, 'esm')))
+        .pipe(dest(path.resolve(BUILD_DIR, 'cjs')));
 });
 
 task('i18n', () => {
-    return src('src/**/i18n/*.json').pipe(dest(path.resolve(BUILD_DIR)));
+    return src('src/**/i18n/*.json')
+        .pipe(dest(path.resolve(BUILD_DIR, 'esm')))
+        .pipe(dest(path.resolve(BUILD_DIR, 'cjs')));
 });
 
 task('styles', () => {
     return src(['src/**/*.scss', '!src/**/__stories__/**/*.scss'])
         .pipe(sass().on('error', sass.logError))
-        .pipe(dest(path.resolve(BUILD_DIR)));
+        .pipe(dest(path.resolve(BUILD_DIR, 'esm')))
+        .pipe(dest(path.resolve(BUILD_DIR, 'cjs')));
 });
 
-task('build', series(['clean', parallel(['ts-compile', 'ts-declaration', 'i18n']), 'styles']));
+task(
+    'build',
+    series([
+        'clean',
+        parallel(['ts-compile-cjs', 'ts-compile-esm', 'ts-declaration', 'i18n']),
+        'styles',
+    ]),
+);
 
 task('default', series(['build']));
