@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.3.1...v3.4.0) (2023-10-23)
+
+
+### Features
+
+* build with both cjs and esm as targets ([#60](https://github.com/ydb-platform/ydb-ui-components/issues/60)) ([7b29759](https://github.com/ydb-platform/ydb-ui-components/commit/7b297599bb1129a40dc6797fcf0673165dd52a42))
+
 ## [3.3.1](https://github.com/ydb-platform/ydb-ui-components/compare/v3.3.0...v3.3.1) (2023-08-09)
 
 
