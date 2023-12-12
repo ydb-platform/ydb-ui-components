@@ -1,11 +1,10 @@
-import '@gravity-ui/uikit/styles/styles.scss';
-
 import React from 'react';
 import {ThemeProvider} from '@gravity-ui/uikit';
 
+import '@gravity-ui/uikit/styles/styles.scss';
+
 import {configure, Lang} from '../src/utils';
 
-import {withTheme} from './decorators/withTheme';
 import {withLang} from './decorators/withLang';
 
 configure({lang: Lang.Ru});
@@ -21,13 +20,13 @@ const withContextProvider = (Story, context) => {
     context.globals.background = theme;
 
     return (
-        <ThemeProvider>
+        <ThemeProvider theme={theme}>
             <Story {...context} />
         </ThemeProvider>
     );
 };
 
-export const decorators = [withTheme, withLang, withContextProvider];
+export const decorators = [withLang, withContextProvider];
 
 export const parameters = {
     jsx: {showFunctions: true},
