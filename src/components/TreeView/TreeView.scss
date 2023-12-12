@@ -23,11 +23,11 @@ $step-offset: 24px;
         height: 24px;
         padding-left: calc(#{$step-offset} * var(--ydb-tree-view-level));
         padding-right: 3px;
-        border-bottom: 1px solid var(--yc-color-line-solid);
+        border-bottom: 1px solid var(--g-color-line-generic-solid);
         cursor: pointer;
 
         &:hover {
-            background-color: var(--yc-color-base-simple-hover);
+            background-color: var(--g-color-base-simple-hover);
 
             #{$root}__actions {
                 display: flex;
@@ -36,10 +36,10 @@ $step-offset: 24px;
 
         &_active {
             font-weight: bold;
-            background-color: var(--yc-color-base-selection);
+            background-color: var(--g-color-base-selection);
 
             &:hover {
-                background-color: var(--yc-color-base-selection-hover);
+                background-color: var(--g-color-base-selection-hover);
             }
         }
     }
@@ -58,7 +58,7 @@ $step-offset: 24px;
         justify-content: center;
         width: 24px;
         height: 24px;
-        color: var(--yc-color-text-hint);
+        color: var(--g-color-text-hint);
 
         svg {
             display: block;
@@ -87,7 +87,7 @@ $step-offset: 24px;
 
         @include arrow-background(rgba(0, 0, 0, 0.85));
 
-        .yc-root_theme_dark & {
+        .g-root_theme_dark & {
             @include arrow-background(rgba(255, 255, 255, 0.85));
         }
 
