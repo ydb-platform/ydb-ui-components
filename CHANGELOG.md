@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.4.0...v3.5.0) (2023-12-12)
+
+
+### Features
+
+* update to uikit5 ([#62](https://github.com/ydb-platform/ydb-ui-components/issues/62)) ([03cf678](https://github.com/ydb-platform/ydb-ui-components/commit/03cf6786f27ed433a040cb4d2ad70764eaa8e4b1))
+
 ## [3.4.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.3.1...v3.4.0) (2023-10-23)
 
 
