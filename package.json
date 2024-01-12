@@ -33,8 +33,7 @@
   "dependencies": {
     "@gravity-ui/i18n": "^1.0.0",
     "bem-cn-lite": "^4.1.0",
-    "react-list": "^0.8.17",
-    "react-treeview": "^0.4.7"
+    "react-list": "^0.8.17"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
