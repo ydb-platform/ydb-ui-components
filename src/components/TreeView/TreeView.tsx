@@ -1,8 +1,6 @@
-import React from 'react';
-import block from 'bem-cn-lite';
-import ReactTreeView from 'react-treeview';
 import {DropdownMenu, DropdownMenuItemMixed} from '@gravity-ui/uikit';
-
+import block from 'bem-cn-lite';
+import React, {MouseEventHandler, useCallback} from 'react';
 import './TreeView.scss';
 
 export interface TreeViewProps {
@@ -38,72 +36,75 @@ export function TreeView({
     additionalNodeElements,
     level,
 }: TreeViewProps) {
-    const rootRef = React.useRef<HTMLDivElement>(null);
+    const handleClick = useCallback<MouseEventHandler>(
+        (event) => {
+            if (!onClick) return;
 
-    const nodeLabel = (
-        <div className={b('content')}>
-            {icon && <div className={b('icon')}>{icon}</div>}
-            <div className={b('text')} title={title}>
-                {name}
-            </div>
-            {actions && actions.length > 0 && (
-                <div className={b('actions')}>
-                    {additionalNodeElements}
-                    <DropdownMenu
-                        defaultSwitcherProps={{
-                            view: 'flat-secondary',
-                            size: 's',
-                            pin: 'brick-brick',
-                        }}
-                        items={actions}
-                    />
-                </div>
-            )}
-        </div>
+            const shouldSkip = event.nativeEvent
+                .composedPath()
+                .some(
+                    (target) =>
+                        target instanceof HTMLElement &&
+                        ((target.nodeName === 'BUTTON' && !target.hasAttribute('disabled')) ||
+                            (target.hasAttribute('tabindex') && target.tabIndex > -1)),
+                );
+
+            if (!shouldSkip) onClick();
+        },
+        [onClick],
     );
 
-    React.useEffect(() => {
-        const rootEl = rootRef.current;
-        const itemEl = rootEl && rootEl.querySelector<HTMLDivElement>(`.${b('item')}`);
+    const handleArrowClick = onArrowClick || onClick;
 
-        if (!onClick || !itemEl) {
-            return;
-        }
-
-        const skipClicksSelector = `.tree-view_arrow, .${b('actions')}`;
-
-        function handleClick(event: MouseEvent) {
-            const path = event
-                .composedPath()
-                .filter((item) => (item as Node).nodeType === Node.ELEMENT_NODE) as Element[];
-            const hasSkipped = path.some((el) => el.matches(skipClicksSelector));
-
-            if (!hasSkipped) {
-                onClick!();
-            }
-        }
-
-        itemEl.addEventListener('click', handleClick);
-
-        return () => {
-            itemEl.removeEventListener('click', handleClick);
-        };
-    }, [onClick]);
+    /**
+     * These `className`s are left here for backward compatibility of CSS selectors.
+     * @link https://github.com/ydb-platform/ydb-ui-components/pull/64
+     */
+    const itemClassName = 'tree-view_item';
+    let arrowClassName = 'tree-view_arrow';
+    let containerClassName = 'tree-view_children';
+    if (collapsed) {
+        arrowClassName += ' tree-view_arrow-collapsed';
+        containerClassName += ' tree-view_children-collapsed';
+    }
 
     return (
-        <div
-            ref={rootRef}
-            className={b({'no-arrow': !hasArrow})}
-            style={{[TREE_LEVEL_CSS_VAR]: level} as React.CSSProperties}
-        >
-            <ReactTreeView
-                collapsed={collapsed}
-                itemClassName={b('item', {active})}
-                nodeLabel={nodeLabel}
-                onClick={onArrowClick}
-            >
-                {children}
-            </ReactTreeView>
+        <div className={b()} style={{[TREE_LEVEL_CSS_VAR]: level} as React.CSSProperties}>
+            <div className="tree-view">
+                <div className={`${itemClassName} ${b('item', {active})}`} onClick={handleClick}>
+                    <button
+                        type="button"
+                        className={`${arrowClassName} ${b('arrow', {
+                            collapsed,
+                            hidden: !hasArrow,
+                        })}`}
+                        disabled={!handleArrowClick}
+                        onClick={handleArrowClick}
+                    />
+                    <div className={b('content')}>
+                        {icon && <div className={b('icon')}>{icon}</div>}
+                        <div className={b('text')} title={title}>
+                            {name}
+                        </div>
+                        {actions && actions.length > 0 && (
+                            <div className={b('actions')}>
+                                {additionalNodeElements}
+                                <DropdownMenu
+                                    defaultSwitcherProps={{
+                                        view: 'flat-secondary',
+                                        size: 's',
+                                        pin: 'brick-brick',
+                                    }}
+                                    items={actions}
+                                />
+                            </div>
+                        )}
+                    </div>
+                </div>
+                <div className={`${containerClassName} ${b('container', {collapsed})}`}>
+                    {collapsed ? null : children}
+                </div>
+            </div>
         </div>
     );
 }

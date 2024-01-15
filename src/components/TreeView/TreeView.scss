@@ -79,11 +79,13 @@ $step-offset: 24px;
         align-items: center;
     }
 
-    .tree-view_arrow {
+    &__arrow {
         flex-shrink: 0;
         width: 24px;
         height: 24px;
+        padding: 0;
         cursor: pointer;
+        border: none;
 
         @include arrow-background(rgba(0, 0, 0, 0.85));
 
@@ -91,13 +93,17 @@ $step-offset: 24px;
             @include arrow-background(rgba(255, 255, 255, 0.85));
         }
 
-        &:not(.tree-view_arrow-collapsed) {
+        &:focus-visible {
+            outline: 2px solid var(--g-color-line-focus);
+        }
+
+        &:not(&_collapsed) {
             transform: rotate(90deg);
         }
-    }
 
-    &_no-arrow .tree-view_arrow {
-        visibility: hidden;
+        &_hidden {
+            visibility: hidden;
+        }
     }
 
     & & &__item {
