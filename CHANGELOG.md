@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.5.0...v3.6.0) (2024-01-15)
+
+
+### Features
+
+* **TreeView:** remove `react-treeview` package to avoid using native `addEventListener` ([#64](https://github.com/ydb-platform/ydb-ui-components/issues/64)) ([48d0e4e](https://github.com/ydb-platform/ydb-ui-components/commit/48d0e4e32e28c3d0bebcbeaa086c3b82312f0848))
+
 ## [3.5.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.4.0...v3.5.0) (2023-12-12)
 
 
