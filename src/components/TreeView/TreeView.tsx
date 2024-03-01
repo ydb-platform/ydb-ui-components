@@ -1,6 +1,10 @@
-import {DropdownMenu, DropdownMenuItemMixed} from '@gravity-ui/uikit';
-import block from 'bem-cn-lite';
-import React, {MouseEventHandler, useCallback} from 'react';
+import React from 'react';
+
+import type {DropdownMenuItemMixed} from '@gravity-ui/uikit';
+import {DropdownMenu} from '@gravity-ui/uikit';
+
+import {block} from '../../utils/cn';
+
 import './TreeView.scss';
 
 export interface TreeViewProps {
@@ -36,7 +40,7 @@ export function TreeView({
     additionalNodeElements,
     level,
 }: TreeViewProps) {
-    const handleClick = useCallback<MouseEventHandler>(
+    const handleClick = React.useCallback<React.MouseEventHandler>(
         (event) => {
             if (!onClick) return;
 

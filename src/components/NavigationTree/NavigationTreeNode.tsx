@@ -1,18 +1,19 @@
 import React from 'react';
 
-import {NavigationTreeState, NavigationTreeNodeType, NavigationTreeProps} from './types';
-import {NavigationTreeAction, NavigationTreeActionType} from './state';
-
+import {TreeView} from '../TreeView/TreeView';
+import {ColumnTableIcon} from '../icons/ColumnTable';
 import {DatabaseIcon} from '../icons/Database';
+import {ExternalDataSourceIcon} from '../icons/ExternalDataSource';
+import {ExternalTableIcon} from '../icons/ExternalTable';
 import {FolderIcon} from '../icons/Folder';
 import {FolderOpenIcon} from '../icons/FolderOpen';
+import {IndexIcon} from '../icons/Index';
 import {TableIcon} from '../icons/Table';
 import {TopicIcon} from '../icons/Topic';
-import {IndexIcon} from '../icons/Index';
-import {ColumnTableIcon} from '../icons/ColumnTable';
-import {ExternalTableIcon} from '../icons/ExternalTable';
-import {ExternalDataSourceIcon} from '../icons/ExternalDataSource';
-import {TreeView} from '../TreeView/TreeView';
+
+import {NavigationTreeActionType} from './state';
+import type {NavigationTreeAction} from './state';
+import type {NavigationTreeNodeType, NavigationTreeProps, NavigationTreeState} from './types';
 
 export interface NavigationTreeNodeProps {
     path: string;
@@ -99,7 +100,7 @@ export function NavigationTreeNode({
             })
             .catch((error) => {
                 dispatch({
-                    type: NavigationTreeActionType.FinishLoading,
+                    type: NavigationTreeActionType.ErrorLoading,
                     payload: {path, error},
                 });
             });
@@ -113,7 +114,7 @@ export function NavigationTreeNode({
 
     const handleArrowClick = React.useCallback(() => {
         dispatch({type: NavigationTreeActionType.ToggleCollapsed, payload: {path}});
-    }, []);
+    }, [dispatch, path]);
 
     const additionalNodeElements = React.useMemo(() => {
         return renderAdditionalNodeElements?.(nodeState.path, nodeState.type);

@@ -1,7 +1,6 @@
-import React from 'react';
-import block from 'bem-cn-lite';
 import {Spin} from '@gravity-ui/uikit';
 
+import {block} from '../../../utils/cn';
 import {TreeView} from '../../TreeView/TreeView';
 
 import './LoaderView.scss';

@@ -1,6 +1,3 @@
 {
-    "extends": ["@gravity-ui/stylelint-config", "@gravity-ui/stylelint-config/prettier"],
-    "rules": {
-        "declaration-colon-space-after": "always-single-line"
-    }
+    "extends": ["@gravity-ui/stylelint-config", "@gravity-ui/stylelint-config/prettier"]
 }

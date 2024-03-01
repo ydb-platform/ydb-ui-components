@@ -1,8 +1,6 @@
-import React from 'react';
-import block from 'bem-cn-lite';
-
-import i18n from '../i18n';
+import {block} from '../../../utils/cn';
 import {TreeView} from '../../TreeView/TreeView';
+import i18n from '../i18n';
 
 import './EmptyView.scss';
 

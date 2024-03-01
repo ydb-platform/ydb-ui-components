@@ -1,7 +1,32 @@
 {
-    "extends": ["@gravity-ui/eslint-config", "@gravity-ui/eslint-config/prettier"],
+    "extends": [
+        "@gravity-ui/eslint-config",
+        "@gravity-ui/eslint-config/import-order",
+        "@gravity-ui/eslint-config/client",
+        "@gravity-ui/eslint-config/prettier"
+    ],
     "root": true,
-    "env": {
-        "node": true
-    }
+    "rules": {
+        "react/jsx-fragments": ["error", "element"],
+        "react/react-in-jsx-scope": "off",
+        "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+        "@typescript-eslint/consistent-type-imports": [
+            "error",
+            {"prefer": "type-imports", "fixStyle": "separate-type-imports"}
+        ]
+    },
+    "overrides": [
+        {
+            "files": ["**/__stories__/**/*.[jt]s?(x)"],
+            "rules": {
+                "no-console": "off"
+            }
+        },
+        {
+            "files": ["**/*.js", "!src/**/*"],
+            "env": {
+                "node": true
+            }
+        }
+    ]
 }

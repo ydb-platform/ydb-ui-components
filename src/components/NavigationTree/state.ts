@@ -1,8 +1,9 @@
 import type {
-    NavigationTreeNodeState,
+    NavigationTreeDataItem,
     NavigationTreeNodePartialState,
-    NavigationTreeState,
+    NavigationTreeNodeState,
     NavigationTreeServiceNode,
+    NavigationTreeState,
 } from './types';
 import {getServiceNode, traverseDFS} from './utils';
 
@@ -10,13 +11,44 @@ export enum NavigationTreeActionType {
     ToggleCollapsed = 'toggle-collapsed',
     StartLoading = 'start-loading',
     FinishLoading = 'finish-loading',
+    ErrorLoading = 'error-loading',
     ResetNode = 'reset-node',
 }
 
-export interface NavigationTreeAction {
-    type: NavigationTreeActionType;
-    payload: any;
-}
+export type NavigationTreeAction =
+    | {
+          type: NavigationTreeActionType.ToggleCollapsed;
+          payload: {
+              path: string;
+          };
+      }
+    | {
+          type: NavigationTreeActionType.StartLoading;
+          payload: {
+              path: string;
+          };
+      }
+    | {
+          type: NavigationTreeActionType.FinishLoading;
+          payload: {
+              path: string;
+              activePath?: string;
+              data: NavigationTreeDataItem[];
+          };
+      }
+    | {
+          type: NavigationTreeActionType.ErrorLoading;
+          payload: {
+              path: string;
+              error: unknown;
+          };
+      }
+    | {
+          type: NavigationTreeActionType.ResetNode;
+          payload: {
+              path: string;
+          };
+      };
 
 export function getDefaultNodeState() {
     return {
@@ -66,7 +98,7 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
                     ...state[action.payload.path],
                     loading: false,
                     loaded: Boolean(action.payload.data),
-                    error: Boolean(action.payload.error),
+                    error: false,
                 },
             };
 
@@ -93,6 +125,16 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
 
             return newState;
         }
+        case NavigationTreeActionType.ErrorLoading:
+            return {
+                ...state,
+                [action.payload.path]: {
+                    ...state[action.payload.path],
+                    loading: false,
+                    loaded: false,
+                    error: true,
+                },
+            };
         case NavigationTreeActionType.ResetNode:
             return {
                 ...state,

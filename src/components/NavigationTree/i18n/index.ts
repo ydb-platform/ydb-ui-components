@@ -1,5 +1,6 @@
-import {i18n} from '../../i18n';
 import {Lang} from '../../../utils';
+import {i18n} from '../../i18n';
+
 import en from './en.json';
 import ru from './ru.json';
 
