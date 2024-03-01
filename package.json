@@ -43,7 +43,6 @@
   },
   "dependencies": {
     "@bem-react/classname": "^1.6.0",
-    "@gravity-ui/i18n": "^1.0.0",
     "react-list": "^0.8.17",
     "tslib": "^2.6.2"
   },
@@ -58,7 +57,7 @@
     "@gravity-ui/prettier-config": "^1.1.0",
     "@gravity-ui/stylelint-config": "^4.0.1",
     "@gravity-ui/tsconfig": "^1.0.0",
-    "@gravity-ui/uikit": "^5.24.0",
+    "@gravity-ui/uikit": "^6.1.1",
     "@storybook/addon-essentials": "^7.6.17",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.6.17",
@@ -86,7 +85,7 @@
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "@gravity-ui/uikit": "^5.0.0",
+    "@gravity-ui/uikit": "^6.0.0",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },

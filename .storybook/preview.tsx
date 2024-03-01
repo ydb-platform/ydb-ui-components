@@ -1,26 +1,20 @@
 // eslint-disable-next-line import/order
 import '@gravity-ui/uikit/styles/styles.scss';
 
-import React from 'react';
-
-import {ThemeProvider} from '@gravity-ui/uikit';
+import {ThemeProvider, configure} from '@gravity-ui/uikit';
 import type {Decorator, Preview} from '@storybook/react';
-
-import {Lang, configure} from '../src/utils';
 
 import {withLang} from './decorators/withLang';
 
-configure({lang: Lang.Ru});
+configure({lang: 'en'});
 
 const withContextProvider: Decorator = (Story, context) => {
     const theme = context.globals.theme;
 
     return (
-        <React.StrictMode>
-            <ThemeProvider theme={theme}>
-                <Story {...context} />
-            </ThemeProvider>
-        </React.StrictMode>
+        <ThemeProvider theme={theme}>
+            <Story {...context} />
+        </ThemeProvider>
     );
 };
 
