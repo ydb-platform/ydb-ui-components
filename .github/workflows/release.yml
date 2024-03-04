@@ -9,7 +9,8 @@ jobs:
     if: github.repository == 'ydb-platform/ydb-ui-components'
     runs-on: ubuntu-latest
     steps:
-    - uses: yandex-cloud/ui-release-action@main
-      with:
-        github-token: ${{ secrets.YDB_PLATFORM_BOT_TOKEN_REPO }}
-        npm-token: ${{ secrets.NODE_AUTH_TOKEN }}
+      - uses: gravity-ui/release-action@v1
+        with:
+          github-token: ${{ secrets.YDB_PLATFORM_BOT_TOKEN_REPO }}
+          npm-token: ${{ secrets.NODE_AUTH_TOKEN }}
+          node-version: 18

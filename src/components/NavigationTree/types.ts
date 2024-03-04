@@ -1,4 +1,4 @@
-import {DropdownMenuItemMixed} from '@gravity-ui/uikit';
+import type {DropdownMenuItemMixed} from '@gravity-ui/uikit';
 
 export type NavigationTreeNodeType =
     | 'database'

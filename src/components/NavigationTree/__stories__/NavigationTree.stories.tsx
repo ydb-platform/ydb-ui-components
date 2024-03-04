@@ -1,8 +1,11 @@
 import React from 'react';
-import {Meta, Story} from '@storybook/react';
+
 import {Button} from '@gravity-ui/uikit';
-import {NavigationTreeDataItem, NavigationTreeNodeType} from '../types';
-import {NavigationTree, NavigationTreeProps} from '../NavigationTree';
+import type {Meta, Story} from '@storybook/react';
+
+import {NavigationTree} from '../NavigationTree';
+import type {NavigationTreeProps} from '../NavigationTree';
+import type {NavigationTreeDataItem, NavigationTreeNodeType} from '../types';
 
 export default {
     title: 'NavigationTree',

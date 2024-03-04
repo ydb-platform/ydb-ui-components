@@ -1,18 +1,18 @@
 import React from 'react';
+
 import ReactList from 'react-list';
 
+import {EmptyView} from './EmptyView/EmptyView';
+import {ErrorView} from './ErrorView/ErrorView';
+import {LoaderView} from './LoaderView/LoaderView';
+import {NavigationTreeNode} from './NavigationTreeNode';
+import {getNodeState, reducer, selectTreeAsList} from './state';
 import type {
     NavigationTreeNodeState,
     NavigationTreeProps,
     NavigationTreeServiceNode,
 } from './types';
-import {reducer, getNodeState, selectTreeAsList} from './state';
 import {isServiceNode} from './utils';
-
-import {NavigationTreeNode} from './NavigationTreeNode';
-import {LoaderView} from './LoaderView/LoaderView';
-import {ErrorView} from './ErrorView/ErrorView';
-import {EmptyView} from './EmptyView/EmptyView';
 
 export type {NavigationTreeProps};
 
@@ -43,7 +43,10 @@ export function NavigationTree({
     const [state, dispatch] = React.useReducer(reducer, {
         [partialRootState.path]: getNodeState(partialRootState),
     });
-    const nodesList = React.useMemo(() => selectTreeAsList(state, partialRootState.path), [state]);
+    const nodesList = React.useMemo(
+        () => selectTreeAsList(state, partialRootState.path),
+        [partialRootState.path, state],
+    );
 
     const renderNode = (node: NavigationTreeNodeState) => {
         return (
@@ -76,11 +79,11 @@ export function NavigationTree({
     );
 
     const renderSimpleTree = () => (
-        <>
+        <React.Fragment>
             {nodesList.map((node) =>
                 isServiceNode(node) ? renderServiceNode(node) : renderNode(node),
             )}
-        </>
+        </React.Fragment>
     );
 
     return virtualize ? renderVirtualizedTree() : renderSimpleTree();
