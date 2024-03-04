@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.6.0...v4.0.0) (2024-03-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* update to @gravity-ui/uikit v6 ([#66](https://github.com/ydb-platform/ydb-ui-components/issues/66))
+
+### Features
+
+* update to @gravity-ui/uikit v6 ([#66](https://github.com/ydb-platform/ydb-ui-components/issues/66)) ([639205e](https://github.com/ydb-platform/ydb-ui-components/commit/639205e3b7cbcefe1946446879089e4f2aeedbfe))
+
 ## [3.6.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.5.0...v3.6.0) (2024-01-15)
 
 
