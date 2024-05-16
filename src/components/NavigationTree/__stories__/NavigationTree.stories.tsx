@@ -99,6 +99,10 @@ async function fetchPath(path: string) {
                 name: 'external_data_source',
                 type: 'external_data_source',
             },
+            {
+                name: 'view',
+                type: 'view',
+            },
         ];
     }
 

@@ -10,6 +10,7 @@ import {FolderOpenIcon} from '../icons/FolderOpen';
 import {IndexIcon} from '../icons/Index';
 import {TableIcon} from '../icons/Table';
 import {TopicIcon} from '../icons/Topic';
+import {ViewIcon} from '../icons/View';
 
 import {NavigationTreeActionType} from './state';
 import type {NavigationTreeAction} from './state';
@@ -50,6 +51,8 @@ function renderIcon(type: NavigationTreeNodeType | string, collapsed: boolean) {
             return <ExternalTableIcon height={16} />;
         case 'external_data_source':
             return <ExternalDataSourceIcon height={16} />;
+        case 'view':
+            return <ViewIcon height={16} />;
         default:
             return null;
     }
