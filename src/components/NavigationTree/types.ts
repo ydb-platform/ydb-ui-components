@@ -10,7 +10,8 @@ export type NavigationTreeNodeType =
     | 'topic'
     | 'stream'
     | 'external_table'
-    | 'external_data_source';
+    | 'external_data_source'
+    | 'view';
 
 export interface NavigationTreeDataItem {
     name: string;
