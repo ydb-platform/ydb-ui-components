@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.0.0...v4.1.0) (2024-05-17)
+
+
+### Features
+
+* add view ([#70](https://github.com/ydb-platform/ydb-ui-components/issues/70)) ([142eb66](https://github.com/ydb-platform/ydb-ui-components/commit/142eb661d899576f96811aa0e90be479fdead309))
+
 ## [4.0.0](https://github.com/ydb-platform/ydb-ui-components/compare/v3.6.0...v4.0.0) (2024-03-04)
 
 
