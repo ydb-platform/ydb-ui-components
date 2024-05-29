@@ -92,6 +92,10 @@ async function fetchPath(path: string) {
                 type: 'table',
             },
             {
+                name: 'replication',
+                type: 'async_replication',
+            },
+            {
                 name: 'external_table',
                 type: 'external_table',
             },
@@ -111,7 +115,7 @@ async function fetchPath(path: string) {
     }
 
     if (path === '/folder_2') {
-        throw new Error('Ошибка');
+        throw new Error('Fetch error.');
     }
 
     if (path === '/folder_3') {
