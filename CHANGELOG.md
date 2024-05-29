@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.1.0...v4.2.0) (2024-05-29)
+
+
+### Features
+
+* add `async_replication` navigation tree node type ([#72](https://github.com/ydb-platform/ydb-ui-components/issues/72)) ([5830b30](https://github.com/ydb-platform/ydb-ui-components/commit/5830b3082eb29c3b31751223dfd8683ae219f1e3))
+
 ## [4.1.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.0.0...v4.1.0) (2024-05-17)
 
 
