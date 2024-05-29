@@ -1,16 +1,17 @@
 import type {DropdownMenuItemMixed} from '@gravity-ui/uikit';
 
 export type NavigationTreeNodeType =
+    | 'async_replication'
+    | 'column_table'
     | 'database'
     | 'directory'
-    | 'table'
-    | 'column_table'
+    | 'external_data_source'
+    | 'external_table'
     | 'index_table'
     | 'index'
-    | 'topic'
     | 'stream'
-    | 'external_table'
-    | 'external_data_source'
+    | 'table'
+    | 'topic'
     | 'view';
 
 export interface NavigationTreeDataItem {
