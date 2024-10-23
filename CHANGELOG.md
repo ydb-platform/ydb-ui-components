@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.1](https://github.com/ydb-platform/ydb-ui-components/compare/v4.2.0...v4.2.1) (2024-10-23)
+
+
+### Bug Fixes
+
+* update license ([#75](https://github.com/ydb-platform/ydb-ui-components/issues/75)) ([4fdddfc](https://github.com/ydb-platform/ydb-ui-components/commit/4fdddfc66a8933bbaedd2b917208574e8369abcc))
+
 ## [4.2.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.1.0...v4.2.0) (2024-05-29)
 
 
