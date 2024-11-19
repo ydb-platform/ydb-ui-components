@@ -76,6 +76,17 @@ export function TreeView({
         containerClassName += ' tree-view_children-collapsed';
     }
 
+    const handleOpenToggle = React.useCallback(
+        (isOpen: boolean) => {
+            if (isOpen) {
+                onActionsOpen?.();
+            } else {
+                onActionsClose?.();
+            }
+        },
+        [onActionsOpen, onActionsClose],
+    );
+
     return (
         <div className={b()} style={{[TREE_LEVEL_CSS_VAR]: level} as React.CSSProperties}>
             <div className="tree-view">
@@ -98,9 +109,7 @@ export function TreeView({
                             <div className={b('actions')}>
                                 {additionalNodeElements}
                                 <DropdownMenu
-                                    onOpenToggle={(isOpen) =>
-                                        isOpen ? onActionsOpen?.() : onActionsClose?.()
-                                    }
+                                    onOpenToggle={handleOpenToggle}
                                     defaultSwitcherProps={{
                                         view: 'flat-secondary',
                                         size: 's',
