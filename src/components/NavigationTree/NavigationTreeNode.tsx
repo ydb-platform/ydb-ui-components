@@ -27,6 +27,8 @@ export interface NavigationTreeNodeProps {
     children?: React.ReactNode;
     onActivate?: (path: string) => void;
     getActions?: NavigationTreeProps['getActions'];
+    onActionsOpen?: () => void;
+    onActionsClose?: () => void;
     renderAdditionalNodeElements?: NavigationTreeProps['renderAdditionalNodeElements'];
     cache?: boolean;
 }
@@ -71,6 +73,8 @@ export function NavigationTreeNode({
     children,
     onActivate,
     getActions,
+    onActionsOpen,
+    onActionsClose,
     renderAdditionalNodeElements,
     cache,
 }: NavigationTreeNodeProps) {
@@ -141,6 +145,8 @@ export function NavigationTreeNode({
             hasArrow={nodeState.expandable}
             onClick={handleClick}
             onArrowClick={handleArrowClick}
+            onActionsClose={onActionsClose}
+            onActionsOpen={onActionsOpen}
             level={level}
         >
             {children}
