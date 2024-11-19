@@ -27,7 +27,7 @@ export interface NavigationTreeNodeProps {
     children?: React.ReactNode;
     onActivate?: (path: string) => void;
     getActions?: NavigationTreeProps['getActions'];
-    onOpenToggle?: NavigationTreeProps['onOpenToggle'];
+    onActionsOpenToggle?: NavigationTreeProps['onOpenToggle'];
     renderAdditionalNodeElements?: NavigationTreeProps['renderAdditionalNodeElements'];
     cache?: boolean;
 }
@@ -72,7 +72,7 @@ export function NavigationTreeNode({
     children,
     onActivate,
     getActions,
-    onOpenToggle,
+    onActionsOpenToggle,
     renderAdditionalNodeElements,
     cache,
 }: NavigationTreeNodeProps) {
@@ -132,15 +132,15 @@ export function NavigationTreeNode({
         return getActions?.(nodeState.path, nodeState.type);
     }, [getActions, nodeState]);
 
-    const handleOpenToggle = React.useCallback(
+    const handleActionsOpenToggle = React.useCallback(
         (isOpen: boolean) => {
-            onOpenToggle?.({
+            onActionsOpenToggle?.({
                 path: nodeState.path,
                 type: nodeState.type,
                 isOpen,
             });
         },
-        [nodeState.path, nodeState.type, onOpenToggle],
+        [nodeState.path, nodeState.type, onActionsOpenToggle],
     );
 
     return (
@@ -154,7 +154,7 @@ export function NavigationTreeNode({
             hasArrow={nodeState.expandable}
             onClick={handleClick}
             onArrowClick={handleArrowClick}
-            onOpenToggle={handleOpenToggle}
+            onActionsOpenToggle={handleActionsOpenToggle}
             level={level}
         >
             {children}

@@ -16,7 +16,7 @@ export interface TreeViewProps {
     active?: boolean;
     onClick?: () => void;
     onArrowClick?: () => void;
-    onOpenToggle?: (isOpen: boolean) => void;
+    onActionsOpenToggle?: (isOpen: boolean) => void;
     hasArrow?: boolean;
     actions?: DropdownMenuItemMixed<any>[];
     additionalNodeElements?: JSX.Element;
@@ -36,7 +36,7 @@ export function TreeView({
     active = false,
     onClick,
     onArrowClick,
-    onOpenToggle,
+    onActionsOpenToggle,
     hasArrow = false,
     actions,
     additionalNodeElements,
@@ -96,7 +96,7 @@ export function TreeView({
                             <div className={b('actions')}>
                                 {additionalNodeElements}
                                 <DropdownMenu
-                                    onOpenToggle={onOpenToggle}
+                                    onOpenToggle={onActionsOpenToggle}
                                     defaultSwitcherProps={{
                                         view: 'flat-secondary',
                                         size: 's',
