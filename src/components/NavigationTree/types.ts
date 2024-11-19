@@ -53,7 +53,7 @@ export type NavigationTreeNodePartialState = Omit<
 export interface NavigationTreeProps<D = any> {
     rootState: NavigationTreeNodePartialState;
     fetchPath: (path: string) => Promise<NavigationTreeDataItem[]>;
-    onOpenToggle?: (args: {
+    onActionsOpenToggle?: (args: {
         path: string;
         type: NavigationTreeNodeType;
         isOpen: boolean;

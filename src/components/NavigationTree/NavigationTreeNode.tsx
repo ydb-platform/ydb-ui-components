@@ -27,7 +27,7 @@ export interface NavigationTreeNodeProps {
     children?: React.ReactNode;
     onActivate?: (path: string) => void;
     getActions?: NavigationTreeProps['getActions'];
-    onActionsOpenToggle?: NavigationTreeProps['onOpenToggle'];
+    onActionsOpenToggle?: NavigationTreeProps['onActionsOpenToggle'];
     renderAdditionalNodeElements?: NavigationTreeProps['renderAdditionalNodeElements'];
     cache?: boolean;
 }
