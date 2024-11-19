@@ -37,6 +37,7 @@ export function TreeView({
     active = false,
     onClick,
     onArrowClick,
+    onActionsOpen,
     onActionsClose,
     hasArrow = false,
     actions,
@@ -98,7 +99,7 @@ export function TreeView({
                                 {additionalNodeElements}
                                 <DropdownMenu
                                     onOpenToggle={(isOpen) =>
-                                        isOpen ? onActionsClose?.() : onActionsClose?.()
+                                        isOpen ? onActionsOpen?.() : onActionsClose?.()
                                     }
                                     defaultSwitcherProps={{
                                         view: 'flat-secondary',
