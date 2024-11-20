@@ -53,6 +53,11 @@ export type NavigationTreeNodePartialState = Omit<
 export interface NavigationTreeProps<D = any> {
     rootState: NavigationTreeNodePartialState;
     fetchPath: (path: string) => Promise<NavigationTreeDataItem[]>;
+    onActionsOpenToggle?: (args: {
+        path: string;
+        type: NavigationTreeNodeType;
+        isOpen: boolean;
+    }) => DropdownMenuItemMixed<D>[];
     getActions?: (path: string, type: NavigationTreeNodeType) => DropdownMenuItemMixed<D>[];
     renderAdditionalNodeElements?: (
         path: string,
