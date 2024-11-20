@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.3.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.2.0...v4.3.0) (2024-11-20)
+
+
+### Features
+
+* add actions open toggle handler ([#77](https://github.com/ydb-platform/ydb-ui-components/issues/77)) ([9a75f25](https://github.com/ydb-platform/ydb-ui-components/commit/9a75f25b12543f3bc04693d0ac27e122a3339b5d))
+
+
+### Bug Fixes
+
+* update license ([#75](https://github.com/ydb-platform/ydb-ui-components/issues/75)) ([4fdddfc](https://github.com/ydb-platform/ydb-ui-components/commit/4fdddfc66a8933bbaedd2b917208574e8369abcc))
+
 ## [4.2.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.1.0...v4.2.0) (2024-05-29)
 
 
