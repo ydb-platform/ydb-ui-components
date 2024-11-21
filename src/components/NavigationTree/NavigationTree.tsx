@@ -36,6 +36,7 @@ export function NavigationTree({
     getActions,
     renderAdditionalNodeElements,
     activePath,
+    onActionsOpenToggle,
     onActivePathUpdate,
     cache = true,
     virtualize = false,
@@ -59,6 +60,7 @@ export function NavigationTree({
                 dispatch={dispatch}
                 onActivate={onActivePathUpdate}
                 getActions={getActions}
+                onActionsOpenToggle={onActionsOpenToggle}
                 renderAdditionalNodeElements={renderAdditionalNodeElements}
                 cache={cache}
                 level={node.level}
