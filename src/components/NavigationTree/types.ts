@@ -57,7 +57,7 @@ export interface NavigationTreeProps<D = any> {
         path: string;
         type: NavigationTreeNodeType;
         isOpen: boolean;
-    }) => DropdownMenuItemMixed<D>[];
+    }) => void;
     getActions?: (path: string, type: NavigationTreeNodeType) => DropdownMenuItemMixed<D>[];
     renderAdditionalNodeElements?: (
         path: string,
