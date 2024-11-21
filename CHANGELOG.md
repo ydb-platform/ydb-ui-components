@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.3.2](https://github.com/ydb-platform/ydb-ui-components/compare/v4.3.1...v4.3.2) (2024-11-21)
+
+
+### Bug Fixes
+
+* pass action toggle to navigation tree ([#80](https://github.com/ydb-platform/ydb-ui-components/issues/80)) ([9d78462](https://github.com/ydb-platform/ydb-ui-components/commit/9d78462234b8a300c55d9c0e6f0246c8b89cf985))
+
 ## [4.3.1](https://github.com/ydb-platform/ydb-ui-components/compare/v4.3.0...v4.3.1) (2024-11-21)
 
 
