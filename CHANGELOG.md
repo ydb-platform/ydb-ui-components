@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.3.1](https://github.com/ydb-platform/ydb-ui-components/compare/v4.3.0...v4.3.1) (2024-11-21)
+
+
+### Bug Fixes
+
+* void toggle return type ([#78](https://github.com/ydb-platform/ydb-ui-components/issues/78)) ([e7526f2](https://github.com/ydb-platform/ydb-ui-components/commit/e7526f25ba03eaecc495974b561feffdb4e286e1))
+
 ## [4.3.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.2.0...v4.3.0) (2024-11-20)
 
 
