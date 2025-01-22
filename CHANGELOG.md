@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.3.2...v4.4.0) (2025-01-22)
+
+
+### Features
+
+* **NavigationTree:** collapse childless nodes ([#84](https://github.com/ydb-platform/ydb-ui-components/issues/84)) ([84733db](https://github.com/ydb-platform/ydb-ui-components/commit/84733db9c69b695a6b039883091f2d94a016099b))
+
 ## [4.3.2](https://github.com/ydb-platform/ydb-ui-components/compare/v4.3.1...v4.3.2) (2024-11-21)
 
 
