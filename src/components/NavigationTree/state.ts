@@ -123,6 +123,14 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
                 }
             }
 
+            if (!action.payload.data || action.payload.data.length === 0) {
+                newState[action.payload.path] = {
+                    ...newState[action.payload.path],
+                    expandable: false,
+                    collapsed: true,
+                };
+            }
+
             return newState;
         }
         case NavigationTreeActionType.ErrorLoading:
