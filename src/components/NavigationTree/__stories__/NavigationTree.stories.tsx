@@ -1,55 +1,77 @@
 import React from 'react';
 
 import {Button} from '@gravity-ui/uikit';
-import type {Meta, Story} from '@storybook/react';
+import type {Meta, StoryFn} from '@storybook/react';
 
 import {NavigationTree} from '../NavigationTree';
 import type {NavigationTreeProps} from '../NavigationTree';
 import type {NavigationTreeDataItem, NavigationTreeNodeType} from '../types';
 
 export default {
+    parameters: {
+        controls: {expanded: true},
+    },
     title: 'NavigationTree',
     component: NavigationTree,
+    args: {
+        cache: true,
+        virtualize: false,
+        rootState: {
+            path: '',
+            name: 'ru/maps/maps_prod',
+            type: 'database',
+            collapsed: false,
+        },
+        getActions: getActions,
+    },
+    argTypes: {
+        rootState: {
+            control: false,
+        },
+        fetchPath: {
+            control: false,
+        },
+        getActions: {
+            control: false,
+        },
+        renderAdditionalNodeElements: {
+            control: false,
+        },
+        activePath: {
+            control: false,
+        },
+        onActivePathUpdate: {
+            control: false,
+        },
+    },
 } as Meta<NavigationTreeProps>;
 
-export const Default: Story<NavigationTreeProps> = () => {
+const Template: StoryFn<NavigationTreeProps> = (props) => {
     const [activePath, setActivePath] = React.useState('');
 
-    return (
-        <NavigationTree
-            rootState={{
-                path: '',
-                name: 'ru/maps/maps_prod',
-                type: 'database',
-                collapsed: false,
-            }}
-            fetchPath={fetchPath}
-            getActions={getActions}
-            renderAdditionalNodeElements={renderAdditionalNodeElements}
-            activePath={activePath}
-            onActivePathUpdate={setActivePath}
-        />
-    );
+    return <NavigationTree activePath={activePath} onActivePathUpdate={setActivePath} {...props} />;
 };
 
-export const Virtualized: Story<NavigationTreeProps> = () => {
-    const [activePath, setActivePath] = React.useState('');
+export const Default: Meta<NavigationTreeProps> = {
+    component: NavigationTree,
+    render: (props) => {
+        return <Template {...props} />;
+    },
+    args: {
+        fetchPath: fetchPath,
+        renderAdditionalNodeElements: renderAdditionalNodeElements,
+    },
+};
 
-    return (
-        <NavigationTree
-            rootState={{
-                path: '',
-                name: 'ru/maps/maps_prod',
-                type: 'database',
-                collapsed: false,
-            }}
-            fetchPath={fetchPathWithLargeResults}
-            getActions={getActions}
-            activePath={activePath}
-            onActivePathUpdate={setActivePath}
-            virtualize
-        />
-    );
+export const Virtualized: Meta<NavigationTreeProps> = {
+    component: NavigationTree,
+    render: (props) => {
+        return <Template {...props} />;
+    },
+    args: {
+        fetchPath: fetchPathWithLargeResults,
+        virtualize: true,
+    },
 };
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
