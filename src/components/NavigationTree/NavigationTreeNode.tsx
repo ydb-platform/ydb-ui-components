@@ -9,6 +9,7 @@ import {ExternalTableIcon} from '../icons/ExternalTable';
 import {FolderIcon} from '../icons/Folder';
 import {FolderOpenIcon} from '../icons/FolderOpen';
 import {IndexIcon} from '../icons/Index';
+import {ResourcePoolIcon} from '../icons/ResourcePool';
 import {TableIcon} from '../icons/Table';
 import {TopicIcon} from '../icons/Topic';
 import {ViewIcon} from '../icons/View';
@@ -32,7 +33,7 @@ export interface NavigationTreeNodeProps {
     cache?: boolean;
 }
 
-function renderIcon(type: NavigationTreeNodeType | string, collapsed: boolean) {
+function renderIcon(type: NavigationTreeNodeType, collapsed: boolean) {
     switch (type) {
         case 'async_replication':
             return <AsyncReplicationIcon height={16} />;
@@ -57,6 +58,8 @@ function renderIcon(type: NavigationTreeNodeType | string, collapsed: boolean) {
             return <ExternalDataSourceIcon height={16} />;
         case 'view':
             return <ViewIcon height={16} />;
+        case 'resource_pool':
+            return <ResourcePoolIcon height={16} />;
         default:
             return null;
     }

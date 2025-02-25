@@ -129,6 +129,10 @@ async function fetchPath(path: string) {
                 name: 'view',
                 type: 'view',
             },
+            {
+                name: 'resource_pool',
+                type: 'resource_pool',
+            },
         ];
     }
 
