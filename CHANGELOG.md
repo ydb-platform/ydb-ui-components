@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.5.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.4.0...v4.5.0) (2025-02-25)
+
+
+### Features
+
+* add resource pool icon ([#86](https://github.com/ydb-platform/ydb-ui-components/issues/86)) ([e7ed4ae](https://github.com/ydb-platform/ydb-ui-components/commit/e7ed4ae8dc72e60356694078d51951f4465ba6fc))
+
 ## [4.4.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.3.2...v4.4.0) (2025-01-22)
 
 
