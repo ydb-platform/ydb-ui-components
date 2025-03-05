@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.6.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.5.0...v4.6.0) (2025-03-05)
+
+
+### Features
+
+* add transfer navigation tree node type ([#88](https://github.com/ydb-platform/ydb-ui-components/issues/88)) ([7cafb58](https://github.com/ydb-platform/ydb-ui-components/commit/7cafb58bba9c286305e51b8206888a3f1de25824))
+
 ## [4.5.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.4.0...v4.5.0) (2025-02-25)
 
 
