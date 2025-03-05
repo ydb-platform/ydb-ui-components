@@ -2,7 +2,6 @@ import React from 'react';
 
 import {TreeView} from '../TreeView/TreeView';
 import {AsyncReplicationIcon} from '../icons/AsyncReplication';
-import {TransferIcon} from '../icons/Transfer';
 import {ColumnTableIcon} from '../icons/ColumnTable';
 import {DatabaseIcon} from '../icons/Database';
 import {ExternalDataSourceIcon} from '../icons/ExternalDataSource';
@@ -13,6 +12,7 @@ import {IndexIcon} from '../icons/Index';
 import {ResourcePoolIcon} from '../icons/ResourcePool';
 import {TableIcon} from '../icons/Table';
 import {TopicIcon} from '../icons/Topic';
+import {TransferIcon} from '../icons/Transfer';
 import {ViewIcon} from '../icons/View';
 
 import {NavigationTreeActionType} from './state';
