@@ -13,6 +13,7 @@ export type NavigationTreeNodeType =
     | 'stream'
     | 'table'
     | 'topic'
+    | 'transfer'
     | 'view';
 
 export interface NavigationTreeDataItem {

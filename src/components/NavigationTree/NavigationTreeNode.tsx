@@ -12,6 +12,7 @@ import {IndexIcon} from '../icons/Index';
 import {ResourcePoolIcon} from '../icons/ResourcePool';
 import {TableIcon} from '../icons/Table';
 import {TopicIcon} from '../icons/Topic';
+import {TransferIcon} from '../icons/Transfer';
 import {ViewIcon} from '../icons/View';
 
 import {NavigationTreeActionType} from './state';
@@ -37,6 +38,8 @@ function renderIcon(type: NavigationTreeNodeType, collapsed: boolean) {
     switch (type) {
         case 'async_replication':
             return <AsyncReplicationIcon height={16} />;
+        case 'transfer':
+            return <TransferIcon height={16} />;
         case 'database':
             // this icon is larger than the others, therefore 14 for a better fit
             return <DatabaseIcon height={14} />;

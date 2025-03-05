@@ -118,6 +118,10 @@ async function fetchPath(path: string) {
                 type: 'async_replication',
             },
             {
+                name: 'transfer',
+                type: 'transfer',
+            },
+            {
                 name: 'external_table',
                 type: 'external_table',
             },
