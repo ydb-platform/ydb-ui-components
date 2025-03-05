@@ -2,6 +2,7 @@ import React from 'react';
 
 import {TreeView} from '../TreeView/TreeView';
 import {AsyncReplicationIcon} from '../icons/AsyncReplication';
+import {TransferIcon} from '../icons/Transfer';
 import {ColumnTableIcon} from '../icons/ColumnTable';
 import {DatabaseIcon} from '../icons/Database';
 import {ExternalDataSourceIcon} from '../icons/ExternalDataSource';
@@ -37,6 +38,8 @@ function renderIcon(type: NavigationTreeNodeType, collapsed: boolean) {
     switch (type) {
         case 'async_replication':
             return <AsyncReplicationIcon height={16} />;
+        case 'transfer':
+            return <TransferIcon height={16} />;
         case 'database':
             // this icon is larger than the others, therefore 14 for a better fit
             return <DatabaseIcon height={14} />;
