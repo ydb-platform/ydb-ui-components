@@ -118,7 +118,16 @@ export function NavigationTreeNode({
                     payload: {path, error},
                 });
             });
-    }, [nodeState.collapsed]);
+    }, [
+        activePath,
+        cache,
+        dispatch,
+        fetchPath,
+        nodeState.collapsed,
+        nodeState.loaded,
+        nodeState.loading,
+        path,
+    ]);
 
     const handleClick = React.useCallback(() => {
         if (onActivate) {
@@ -131,11 +140,11 @@ export function NavigationTreeNode({
     }, [dispatch, path]);
 
     const additionalNodeElements = React.useMemo(() => {
-        return renderAdditionalNodeElements?.(nodeState.path, nodeState.type);
+        return renderAdditionalNodeElements?.(nodeState.path, nodeState.type, nodeState.meta);
     }, [renderAdditionalNodeElements, nodeState]);
 
     const actions = React.useMemo(() => {
-        return getActions?.(nodeState.path, nodeState.type);
+        return getActions?.(nodeState.path, nodeState.type, nodeState.meta);
     }, [getActions, nodeState]);
 
     const handleActionsOpenToggle = React.useCallback(
