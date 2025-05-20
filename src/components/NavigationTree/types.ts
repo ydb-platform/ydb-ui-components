@@ -16,11 +16,12 @@ export type NavigationTreeNodeType =
     | 'transfer'
     | 'view';
 
-export interface NavigationTreeDataItem {
+export interface NavigationTreeDataItem<M = unknown> {
     name: string;
     type: NavigationTreeNodeType;
     /** determined by type by default */
     expandable?: boolean;
+    meta?: M;
 }
 
 export interface NavigationTreeState {
@@ -39,6 +40,7 @@ export interface NavigationTreeNodeState {
     error: boolean;
     children: string[];
     level?: number;
+    meta?: unknown;
 }
 
 export interface NavigationTreeServiceNode {
@@ -52,18 +54,23 @@ export type NavigationTreeNodePartialState = Omit<
     'loading' | 'loaded' | 'error' | 'children'
 >;
 
-export interface NavigationTreeProps<D = any> {
+export interface NavigationTreeProps<D = any, M = any> {
     rootState: NavigationTreeNodePartialState;
-    fetchPath: (path: string) => Promise<NavigationTreeDataItem[]>;
+    fetchPath: (path: string) => Promise<NavigationTreeDataItem<M>[]>;
     onActionsOpenToggle?: (args: {
         path: string;
         type: NavigationTreeNodeType;
         isOpen: boolean;
     }) => void;
-    getActions?: (path: string, type: NavigationTreeNodeType) => DropdownMenuItemMixed<D>[];
+    getActions?: (
+        path: string,
+        type: NavigationTreeNodeType,
+        meta: M,
+    ) => DropdownMenuItemMixed<D>[];
     renderAdditionalNodeElements?: (
         path: string,
         type: NavigationTreeNodeType,
+        meta: M,
     ) => JSX.Element | undefined;
     activePath?: string;
     onActivePathUpdate?: (activePath: string) => void;

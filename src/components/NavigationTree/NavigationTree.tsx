@@ -30,7 +30,7 @@ const renderServiceNode = (node: NavigationTreeServiceNode) => {
     return <EmptyView key={key} level={node.level} />;
 };
 
-export function NavigationTree({
+export function NavigationTree<D = any, M = any>({
     rootState: partialRootState,
     fetchPath,
     getActions,
@@ -40,7 +40,7 @@ export function NavigationTree({
     onActivePathUpdate,
     cache = true,
     virtualize = false,
-}: NavigationTreeProps) {
+}: NavigationTreeProps<D, M>) {
     const [state, dispatch] = React.useReducer(reducer, {
         [partialRootState.path]: getNodeState(partialRootState),
     });
