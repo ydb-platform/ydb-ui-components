@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.7.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.6.0...v4.7.0) (2025-05-20)
+
+
+### Features
+
+* use node meta for actions and additional elements ([#90](https://github.com/ydb-platform/ydb-ui-components/issues/90)) ([0c5a76b](https://github.com/ydb-platform/ydb-ui-components/commit/0c5a76b312280505b382a45d8206a55923fa285e))
+
 ## [4.6.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.5.0...v4.6.0) (2025-03-05)
 
 
