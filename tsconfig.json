@@ -4,6 +4,7 @@
     "module": "esnext",
     "jsx": "react-jsx",
     "resolveJsonModule": true,
+    "moduleResolution": "bundler",
     "verbatimModuleSyntax": true,
     "importHelpers": true
   },

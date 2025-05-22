@@ -30,7 +30,7 @@ $step-offset: 24px;
             background-color: var(--g-color-base-simple-hover);
 
             #{$root}__actions {
-                display: flex;
+                visibility: visible;
             }
         }
 
@@ -73,7 +73,8 @@ $step-offset: 24px;
     }
 
     &__actions {
-        display: none;
+        display: flex;
+        visibility: hidden;
         margin-left: 6px;
 
         align-items: center;
