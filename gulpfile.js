@@ -17,8 +17,9 @@ task('clean', (done) => {
 function compileTs(modules = false) {
     const tsProject = ts.createProject('tsconfig.json', {
         declaration: true,
+        module: modules ? 'esnext' : 'nodenext',
+        moduleResolution: modules ? 'bundler' : 'nodenext',
         ...(modules ? undefined : {verbatimModuleSyntax: false}),
-        module: modules ? 'esnext' : 'commonjs',
     });
     return src(['src/**/*.{ts,tsx}', '!src/**/__stories__/**/*.{ts,tsx}'])
         .pipe(replace(/import '.+\.scss';/g, (match) => match.replace('.scss', '.css')))
