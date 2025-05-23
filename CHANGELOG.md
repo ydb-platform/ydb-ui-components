@@ -1,5 +1,16 @@
 # Changelog
 
+## [5.0.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.7.0...v5.0.0) (2025-05-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* support uikit@7 ([#92](https://github.com/ydb-platform/ydb-ui-components/issues/92))
+
+### Features
+
+* support uikit@7 ([#92](https://github.com/ydb-platform/ydb-ui-components/issues/92)) ([53e3930](https://github.com/ydb-platform/ydb-ui-components/commit/53e3930555bd092642261131c1bb075eb99fab2d))
+
 ## [4.7.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.6.0...v4.7.0) (2025-05-20)
 
 
