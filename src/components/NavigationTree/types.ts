@@ -11,6 +11,7 @@ export type NavigationTreeNodeType =
     | 'index_table'
     | 'index'
     | 'stream'
+    | 'system_table'
     | 'table'
     | 'topic'
     | 'transfer'
