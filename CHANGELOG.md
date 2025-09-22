@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.1](https://github.com/ydb-platform/ydb-ui-components/compare/v5.1.0...v5.1.1) (2025-09-22)
+
+
+### Bug Fixes
+
+* **NavigationTreeNode:** do not refetch if error ([#98](https://github.com/ydb-platform/ydb-ui-components/issues/98)) ([0af990f](https://github.com/ydb-platform/ydb-ui-components/commit/0af990f46868ee316ec9f71548bc91ff249599e4))
+
 ## [5.1.0](https://github.com/ydb-platform/ydb-ui-components/compare/v5.0.0...v5.1.0) (2025-09-16)
 
 
