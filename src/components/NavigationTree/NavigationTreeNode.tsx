@@ -96,7 +96,7 @@ export function NavigationTreeNode({
             return;
         }
 
-        if (nodeState.loaded || nodeState.loading) {
+        if (nodeState.loaded || nodeState.loading || nodeState.error) {
             return;
         }
 
@@ -126,6 +126,7 @@ export function NavigationTreeNode({
         nodeState.collapsed,
         nodeState.loaded,
         nodeState.loading,
+        nodeState.error,
         path,
     ]);
 
