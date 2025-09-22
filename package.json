@@ -1,6 +1,6 @@
 {
   "name": "ydb-ui-components",
-  "version": "4.7.0",
+  "version": "5.1.0",
   "description": "",
   "license": "MIT",
   "exports": {
@@ -37,7 +37,7 @@
     "lint": "run-p lint:*",
     "prettier": "prettier '**/*.{json,md,yaml,yml}'",
     "typecheck": "tsc --noEmit",
-    "start": "storybook dev -p 7002",
+    "start": "storybook dev -p 7003",
     "prepublishOnly": "npm run build",
     "prepare": "husky"
   },
@@ -54,10 +54,11 @@
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
     "@gravity-ui/eslint-config": "^3.1.1",
+    "@gravity-ui/icons": "^2.16.0",
     "@gravity-ui/prettier-config": "^1.1.0",
     "@gravity-ui/stylelint-config": "^4.0.1",
     "@gravity-ui/tsconfig": "^1.0.0",
-    "@gravity-ui/uikit": "^6.1.1",
+    "@gravity-ui/uikit": "^7.11.0",
     "@storybook/addon-essentials": "^7.6.17",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.6.17",
@@ -85,7 +86,7 @@
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "@gravity-ui/uikit": "^6.0.0",
+    "@gravity-ui/uikit": "^7.0.0",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },

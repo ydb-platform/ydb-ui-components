@@ -49,6 +49,7 @@ function renderIcon(type: NavigationTreeNodeType, collapsed: boolean) {
             return <IndexIcon height={16} />;
         case 'table':
         case 'index_table':
+        case 'system_table':
             return <TableIcon height={16} />;
         case 'column_table':
             return <ColumnTableIcon height={16} />;

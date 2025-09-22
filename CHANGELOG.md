@@ -1,5 +1,24 @@
 # Changelog
 
+## [5.1.0](https://github.com/ydb-platform/ydb-ui-components/compare/v5.0.0...v5.1.0) (2025-09-16)
+
+
+### Features
+
+* **NavigationTree:** add system table node type ([#95](https://github.com/ydb-platform/ydb-ui-components/issues/95)) ([2b4da15](https://github.com/ydb-platform/ydb-ui-components/commit/2b4da15414208b89d3488d707d14fe51c2dd06f7))
+* replace transfer icon ([#94](https://github.com/ydb-platform/ydb-ui-components/issues/94)) ([f6c3b55](https://github.com/ydb-platform/ydb-ui-components/commit/f6c3b55d94cfabf9529ad6b1dd7b250923160252))
+
+## [5.0.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.7.0...v5.0.0) (2025-05-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* support uikit@7 ([#92](https://github.com/ydb-platform/ydb-ui-components/issues/92))
+
+### Features
+
+* support uikit@7 ([#92](https://github.com/ydb-platform/ydb-ui-components/issues/92)) ([53e3930](https://github.com/ydb-platform/ydb-ui-components/commit/53e3930555bd092642261131c1bb075eb99fab2d))
+
 ## [4.7.0](https://github.com/ydb-platform/ydb-ui-components/compare/v4.6.0...v4.7.0) (2025-05-20)
 
 
