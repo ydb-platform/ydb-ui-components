@@ -4,6 +4,9 @@ export function DatabaseIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
+            // This icon is larger than the others, therefore 14 for a better fit (other have 16)
+            height={14}
+            width={14}
             viewBox="0 0 448 512"
             fill="currentColor"
             {...props}
