@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.0](https://github.com/ydb-platform/ydb-ui-components/compare/v5.1.1...v5.2.0) (2025-10-01)
+
+
+### Features
+
+* export icons ([#100](https://github.com/ydb-platform/ydb-ui-components/issues/100)) ([c75cbfe](https://github.com/ydb-platform/ydb-ui-components/commit/c75cbfe234b53eb7f6af0fe9b908ffb87270370f))
+
 ## [5.1.1](https://github.com/ydb-platform/ydb-ui-components/compare/v5.1.0...v5.1.1) (2025-09-22)
 
 
