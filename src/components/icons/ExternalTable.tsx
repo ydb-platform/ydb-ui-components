@@ -2,7 +2,14 @@ import React from 'react';
 
 export function ExternalTableIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height={16}
+            width={16}
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            {...props}
+        >
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"

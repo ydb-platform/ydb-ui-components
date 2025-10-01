@@ -1,19 +1,21 @@
 import React from 'react';
 
 import {TreeView} from '../TreeView/TreeView';
-import {AsyncReplicationIcon} from '../icons/AsyncReplication';
-import {ColumnTableIcon} from '../icons/ColumnTable';
-import {DatabaseIcon} from '../icons/Database';
-import {ExternalDataSourceIcon} from '../icons/ExternalDataSource';
-import {ExternalTableIcon} from '../icons/ExternalTable';
-import {FolderIcon} from '../icons/Folder';
-import {FolderOpenIcon} from '../icons/FolderOpen';
-import {IndexIcon} from '../icons/Index';
-import {ResourcePoolIcon} from '../icons/ResourcePool';
-import {TableIcon} from '../icons/Table';
-import {TopicIcon} from '../icons/Topic';
-import {TransferIcon} from '../icons/Transfer';
-import {ViewIcon} from '../icons/View';
+import {
+    AsyncReplicationIcon,
+    ColumnTableIcon,
+    DatabaseIcon,
+    ExternalDataSourceIcon,
+    ExternalTableIcon,
+    FolderIcon,
+    FolderOpenIcon,
+    ResourcePoolIcon,
+    TableIcon,
+    TableIndexIcon,
+    TopicIcon,
+    TransferIcon,
+    ViewIcon,
+} from '../icons';
 
 import {NavigationTreeActionType} from './state';
 import type {NavigationTreeAction} from './state';
@@ -37,33 +39,32 @@ export interface NavigationTreeNodeProps {
 function renderIcon(type: NavigationTreeNodeType, collapsed: boolean) {
     switch (type) {
         case 'async_replication':
-            return <AsyncReplicationIcon height={16} />;
+            return <AsyncReplicationIcon />;
         case 'transfer':
-            return <TransferIcon height={16} />;
+            return <TransferIcon />;
         case 'database':
-            // this icon is larger than the others, therefore 14 for a better fit
-            return <DatabaseIcon height={14} />;
+            return <DatabaseIcon />;
         case 'directory':
-            return collapsed ? <FolderIcon height={16} /> : <FolderOpenIcon height={16} />;
+            return collapsed ? <FolderIcon /> : <FolderOpenIcon />;
         case 'index':
-            return <IndexIcon height={16} />;
+            return <TableIndexIcon />;
         case 'table':
         case 'index_table':
         case 'system_table':
-            return <TableIcon height={16} />;
+            return <TableIcon />;
         case 'column_table':
-            return <ColumnTableIcon height={16} />;
+            return <ColumnTableIcon />;
         case 'stream':
         case 'topic':
-            return <TopicIcon height={16} />;
+            return <TopicIcon />;
         case 'external_table':
-            return <ExternalTableIcon height={16} />;
+            return <ExternalTableIcon />;
         case 'external_data_source':
-            return <ExternalDataSourceIcon height={16} />;
+            return <ExternalDataSourceIcon />;
         case 'view':
-            return <ViewIcon height={16} />;
+            return <ViewIcon />;
         case 'resource_pool':
-            return <ResourcePoolIcon height={16} />;
+            return <ResourcePoolIcon />;
         default:
             return null;
     }

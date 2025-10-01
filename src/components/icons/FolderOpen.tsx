@@ -2,7 +2,14 @@ import React from 'react';
 
 export function FolderOpenIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height={16}
+            width={16}
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            {...props}
+        >
             <path d="M15.2109 9.06445C15.4648 8.6582 15.1602 8.125 14.6777 8.125H4.54688C4.01367 8.125 3.37891 8.50586 3.125 8.9375L1.29688 12.0859C1.04297 12.4922 1.34766 13 1.83008 13H11.9609C12.4941 13 13.1289 12.6445 13.3828 12.2129L15.2109 9.06445ZM4.54688 7.3125H12.875V6.09375C12.875 5.43359 12.3164 4.875 11.6562 4.875H7.59375L5.96875 3.25H1.90625C1.2207 3.25 0.6875 3.80859 0.6875 4.46875V11.5527L2.43945 8.53125C2.87109 7.79492 3.6582 7.3125 4.54688 7.3125Z" />
         </svg>
     );
