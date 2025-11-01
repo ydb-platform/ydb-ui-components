@@ -12,6 +12,7 @@ export type NavigationTreeNodeType =
     | 'index'
     | 'stream'
     | 'system_table'
+    | 'streaming_query'
     | 'table'
     | 'topic'
     | 'transfer'

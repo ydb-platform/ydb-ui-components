@@ -11,3 +11,4 @@ export {TableIndexIcon} from './TableIndex';
 export {TopicIcon} from './Topic';
 export {TransferIcon} from './Transfer';
 export {ViewIcon} from './View';
+export {StreamingQueryIcon} from './StreamingQuery';
