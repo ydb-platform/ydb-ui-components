@@ -130,6 +130,10 @@ async function fetchPath(path: string) {
                 type: 'external_data_source',
             },
             {
+                name: 'streaming_query',
+                type: 'streaming_query',
+            },
+            {
                 name: 'view',
                 type: 'view',
             },

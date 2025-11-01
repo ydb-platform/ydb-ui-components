@@ -10,6 +10,7 @@ import {
     FolderIcon,
     FolderOpenIcon,
     ResourcePoolIcon,
+    StreamingQueryIcon,
     TableIcon,
     TableIndexIcon,
     TopicIcon,
@@ -61,6 +62,8 @@ function renderIcon(type: NavigationTreeNodeType, collapsed: boolean) {
             return <ExternalTableIcon />;
         case 'external_data_source':
             return <ExternalDataSourceIcon />;
+        case 'streaming_query':
+            return <StreamingQueryIcon />;
         case 'view':
             return <ViewIcon />;
         case 'resource_pool':
