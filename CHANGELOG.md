@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.0](https://github.com/ydb-platform/ydb-ui-components/compare/v5.2.0...v5.3.0) (2025-11-01)
+
+
+### Features
+
+* **NavigationTree:** add new icon of streaming query ([#102](https://github.com/ydb-platform/ydb-ui-components/issues/102)) ([0feff85](https://github.com/ydb-platform/ydb-ui-components/commit/0feff8510aa63e29ffb2073f3b2e7068df91b2b8))
+
 ## [5.2.0](https://github.com/ydb-platform/ydb-ui-components/compare/v5.1.1...v5.2.0) (2025-10-01)
 
 
