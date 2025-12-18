@@ -75,6 +75,7 @@ export function TreeView({
     }
 
     const tooltipContent = title ?? (typeof name === 'string' ? name : '');
+    const isTooltipDisabled = tooltipContent.trim().length === 0;
 
     return (
         <div className={b()} style={{[TREE_LEVEL_CSS_VAR]: level} as React.CSSProperties}>
@@ -90,14 +91,12 @@ export function TreeView({
                         onClick={handleArrowClick}
                     />
                     <div className={b('content')}>
-                        <div className={b('label')}>
-                            <ActionTooltip title={tooltipContent}>
-                                <div className={b('label-content')}>
-                                    {icon && <div className={b('icon')}>{icon}</div>}
-                                    <div className={b('text')}>{name}</div>
-                                </div>
-                            </ActionTooltip>
-                        </div>
+                        <ActionTooltip title={tooltipContent} disabled={isTooltipDisabled}>
+                            <div className={b('label')}>
+                                {icon && <div className={b('icon')}>{icon}</div>}
+                                <div className={b('text')}>{name}</div>
+                            </div>
+                        </ActionTooltip>
                         {actions && actions.length > 0 && (
                             <div className={b('actions')}>
                                 {additionalNodeElements}
