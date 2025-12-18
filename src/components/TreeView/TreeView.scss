@@ -7,6 +7,7 @@ $step-offset: 24px;
 
 .ydb-tree-view {
     --ydb-tree-view-level: 0;
+    $icon-height: 24px;
 
     $root: &;
     font-size: 13px;
@@ -56,8 +57,8 @@ $step-offset: 24px;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 24px;
-        height: 24px;
+        width: $icon-height;
+        height: $icon-height;
         color: var(--g-color-text-hint);
 
         svg {
@@ -67,16 +68,14 @@ $step-offset: 24px;
 
     &__label {
         flex-grow: 1;
-        min-width: 24px;
+        min-width: $icon-height;
         display: flex;
-        overflow: hidden;
     }
 
     &__label-content {
         display: inline-flex;
         align-items: center;
         min-width: 0;
-        overflow: hidden;
     }
 
     &__text {

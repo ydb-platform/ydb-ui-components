@@ -1,7 +1,7 @@
 import React from 'react';
 
 import type {DropdownMenuItemMixed} from '@gravity-ui/uikit';
-import {DropdownMenu, Tooltip} from '@gravity-ui/uikit';
+import {ActionTooltip, DropdownMenu} from '@gravity-ui/uikit';
 
 import {block} from '../../utils/cn';
 
@@ -91,12 +91,12 @@ export function TreeView({
                     />
                     <div className={b('content')}>
                         <div className={b('label')}>
-                            <Tooltip content={tooltipContent}>
+                            <ActionTooltip title={tooltipContent}>
                                 <div className={b('label-content')}>
                                     {icon && <div className={b('icon')}>{icon}</div>}
                                     <div className={b('text')}>{name}</div>
                                 </div>
-                            </Tooltip>
+                            </ActionTooltip>
                         </div>
                         {actions && actions.length > 0 && (
                             <div className={b('actions')}>
