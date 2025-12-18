@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.4.0](https://github.com/ydb-platform/ydb-ui-components/compare/v5.3.0...v5.4.0) (2025-12-18)
+
+
+### Features
+
+* **tree-view:** show tooltip with full node name on hover ([#105](https://github.com/ydb-platform/ydb-ui-components/issues/105)) ([f64f993](https://github.com/ydb-platform/ydb-ui-components/commit/f64f99373c402804bcb3491eb8849d3231e94edb))
+
 ## [5.3.0](https://github.com/ydb-platform/ydb-ui-components/compare/v5.2.0...v5.3.0) (2025-11-01)
 
 
