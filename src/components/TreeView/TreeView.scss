@@ -65,8 +65,22 @@ $step-offset: 24px;
         }
     }
 
-    &__text {
+    &__label {
         flex-grow: 1;
+        min-width: 24px;
+        display: flex;
+        overflow: hidden;
+    }
+
+    &__label-content {
+        display: inline-flex;
+        align-items: center;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    &__text {
+        min-width: 0;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;

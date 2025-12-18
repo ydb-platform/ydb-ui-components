@@ -1,7 +1,7 @@
 import React from 'react';
 
 import type {DropdownMenuItemMixed} from '@gravity-ui/uikit';
-import {DropdownMenu} from '@gravity-ui/uikit';
+import {DropdownMenu, Tooltip} from '@gravity-ui/uikit';
 
 import {block} from '../../utils/cn';
 
@@ -74,6 +74,8 @@ export function TreeView({
         containerClassName += ' tree-view_children-collapsed';
     }
 
+    const tooltipContent = title ?? (typeof name === 'string' ? name : '');
+
     return (
         <div className={b()} style={{[TREE_LEVEL_CSS_VAR]: level} as React.CSSProperties}>
             <div className="tree-view">
@@ -88,9 +90,13 @@ export function TreeView({
                         onClick={handleArrowClick}
                     />
                     <div className={b('content')}>
-                        {icon && <div className={b('icon')}>{icon}</div>}
-                        <div className={b('text')} title={title}>
-                            {name}
+                        <div className={b('label')}>
+                            <Tooltip content={tooltipContent}>
+                                <div className={b('label-content')}>
+                                    {icon && <div className={b('icon')}>{icon}</div>}
+                                    <div className={b('text')}>{name}</div>
+                                </div>
+                            </Tooltip>
                         </div>
                         {actions && actions.length > 0 && (
                             <div className={b('actions')}>
