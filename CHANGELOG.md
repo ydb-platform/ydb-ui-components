@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.4.1](https://github.com/ydb-platform/ydb-ui-components/compare/v5.4.0...v5.4.1) (2026-01-27)
+
+
+### Bug Fixes
+
+* release workflow ([#107](https://github.com/ydb-platform/ydb-ui-components/issues/107)) ([af089aa](https://github.com/ydb-platform/ydb-ui-components/commit/af089aa7d0e15c0d7f9ad1477cb236407eb1a8c9))
+
 ## [5.4.0](https://github.com/ydb-platform/ydb-ui-components/compare/v5.3.0...v5.4.0) (2025-12-18)
 
 
