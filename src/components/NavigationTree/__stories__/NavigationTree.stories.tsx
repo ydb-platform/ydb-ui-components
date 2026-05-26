@@ -4,7 +4,7 @@ import {Button} from '@gravity-ui/uikit';
 import type {Meta, StoryFn} from '@storybook/react';
 
 import {NavigationTree} from '../NavigationTree';
-import type {NavigationTreeProps} from '../NavigationTree';
+import type {NavigationTreeHandle, NavigationTreeProps} from '../NavigationTree';
 import type {NavigationTreeDataItem, NavigationTreeNodeType} from '../types';
 
 export default {
@@ -46,10 +46,25 @@ export default {
     },
 } as Meta<NavigationTreeProps>;
 
+const navigationTreeContainerStyle: React.CSSProperties = {
+    height: 400,
+    overflow: 'auto',
+};
+
+const scrollActionsStyle: React.CSSProperties = {
+    display: 'flex',
+    gap: 8,
+    marginBottom: 12,
+};
+
 const Template: StoryFn<NavigationTreeProps> = (props) => {
     const [activePath, setActivePath] = React.useState('');
 
-    return <NavigationTree activePath={activePath} onActivePathUpdate={setActivePath} {...props} />;
+    return (
+        <div style={navigationTreeContainerStyle}>
+            <NavigationTree {...props} activePath={activePath} onActivePathUpdate={setActivePath} />
+        </div>
+    );
 };
 
 export const Default: Meta<NavigationTreeProps> = {
@@ -71,6 +86,59 @@ export const Virtualized: Meta<NavigationTreeProps> = {
     args: {
         fetchPath: fetchPathWithLargeResults,
         virtualize: true,
+    },
+};
+
+const ScrollToActiveVirtualizedTemplate: StoryFn<NavigationTreeProps> = (props) => {
+    const [activePath, setActivePath] = React.useState('/item_500');
+    const navigationTreeRef = React.useRef<NavigationTreeHandle>(null);
+
+    return (
+        <React.Fragment>
+            <div style={scrollActionsStyle}>
+                <Button size="s" onClick={() => setActivePath('/item_5')}>
+                    Select top item
+                </Button>
+                <Button size="s" onClick={() => setActivePath('/item_500')}>
+                    Select middle item
+                </Button>
+                <Button size="s" onClick={() => setActivePath('/item_995')}>
+                    Select bottom item
+                </Button>
+                <Button
+                    size="s"
+                    view="action"
+                    onClick={() => navigationTreeRef.current?.scrollToActive()}
+                >
+                    Scroll to selected
+                </Button>
+            </div>
+            <div style={navigationTreeContainerStyle}>
+                <NavigationTree
+                    {...props}
+                    ref={navigationTreeRef}
+                    activePath={activePath}
+                    onActivePathUpdate={setActivePath}
+                />
+            </div>
+        </React.Fragment>
+    );
+};
+
+export const VirtualizedScrollToActive: Meta<NavigationTreeProps> = {
+    component: NavigationTree,
+    render: (props) => {
+        return <ScrollToActiveVirtualizedTemplate {...props} />;
+    },
+    args: {
+        fetchPath: fetchFlatLargeList,
+        virtualize: true,
+        rootState: {
+            path: '',
+            name: 'flat_1000_items',
+            type: 'directory',
+            collapsed: false,
+        },
     },
 };
 
@@ -255,6 +323,25 @@ async function fetchPathWithLargeResults(path: string) {
     }
 
     return items;
+}
+
+async function fetchFlatLargeList(path: string) {
+    console.log(`Fetching "${path}"...`);
+
+    await sleep(500);
+
+    if (path === '') {
+        const items: NavigationTreeDataItem[] = [];
+        for (let i = 1; i <= 1000; i++) {
+            items.push({
+                name: `item_${i}`,
+                type: 'table',
+            });
+        }
+        return items;
+    }
+
+    return [];
 }
 
 function getActions(path: string, type: NavigationTreeNodeType) {
