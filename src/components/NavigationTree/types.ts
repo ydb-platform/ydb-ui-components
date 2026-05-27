@@ -43,6 +43,12 @@ export interface NavigationTreeNodeState {
     children: string[];
     level?: number;
     meta?: unknown;
+    /**
+     * Monotonic id of the latest in-flight load for this node. Used to discard stale
+     * results: only a `FinishLoading` / `ErrorLoading` whose payload id matches this
+     * value is applied. `0` means there is no active request (default / after reset).
+     */
+    requestId: number;
 }
 
 export interface NavigationTreeServiceNode {
@@ -53,7 +59,7 @@ export interface NavigationTreeServiceNode {
 
 export type NavigationTreeNodePartialState = Omit<
     NavigationTreeNodeState,
-    'loading' | 'loaded' | 'error' | 'children'
+    'loading' | 'loaded' | 'error' | 'children' | 'requestId'
 >;
 
 export interface NavigationTreeProps<D = any, M = any> {

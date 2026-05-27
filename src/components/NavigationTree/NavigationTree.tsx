@@ -72,6 +72,13 @@ function NavigationTreeInner<D = any, M = any>(
         [nodesList],
     );
     const reactListRef = React.useRef<ReactList>(null);
+    /**
+     * Monotonic counter of in-flight load requests. The current value is captured per
+     * dispatched `StartLoading` and forwarded to the resolving `FinishLoading` /
+     * `ErrorLoading`, so the reducer can drop responses that no longer match the latest
+     * request for a given path (see the stale-result guard in `reducer`).
+     */
+    const requestIdRef = React.useRef(0);
     const activeItemRef = React.useRef<HTMLDivElement>(null);
     const activeNodeIndex = React.useMemo(
         () => nodesList.findIndex((node) => !isServiceNode(node) && node.path === activePath),
@@ -93,22 +100,24 @@ function NavigationTreeInner<D = any, M = any>(
 
     React.useEffect(() => {
         nodesToLoad.forEach((node) => {
+            const requestId = ++requestIdRef.current;
+
             dispatch({
                 type: NavigationTreeActionType.StartLoading,
-                payload: {path: node.path},
+                payload: {path: node.path, requestId},
             });
 
             fetchPath(node.path)
                 .then((data) => {
                     dispatch({
                         type: NavigationTreeActionType.FinishLoading,
-                        payload: {path: node.path, activePath, data},
+                        payload: {path: node.path, activePath, data, requestId},
                     });
                 })
                 .catch((error) => {
                     dispatch({
                         type: NavigationTreeActionType.ErrorLoading,
-                        payload: {path: node.path, error},
+                        payload: {path: node.path, error, requestId},
                     });
                 });
         });

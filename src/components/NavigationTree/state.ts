@@ -26,6 +26,8 @@ export type NavigationTreeAction =
           type: NavigationTreeActionType.StartLoading;
           payload: {
               path: string;
+              /** Monotonic id captured at dispatch time; written into node state. */
+              requestId: number;
           };
       }
     | {
@@ -34,6 +36,8 @@ export type NavigationTreeAction =
               path: string;
               activePath?: string;
               data: NavigationTreeDataItem[];
+              /** Id of the `StartLoading` this result belongs to; stale ones are dropped. */
+              requestId: number;
           };
       }
     | {
@@ -41,6 +45,8 @@ export type NavigationTreeAction =
           payload: {
               path: string;
               error: unknown;
+              /** Id of the `StartLoading` this error belongs to; stale ones are dropped. */
+              requestId: number;
           };
       }
     | {
@@ -57,6 +63,7 @@ export function getDefaultNodeState() {
         loaded: false,
         error: false,
         children: [],
+        requestId: 0,
     };
 }
 
@@ -89,17 +96,21 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
                     loaded: false,
                     error: false,
                     children: [],
+                    requestId: action.payload.requestId,
                 },
             };
         case NavigationTreeActionType.FinishLoading: {
             const currentNode = state[action.payload.path];
-            // Ignore stale results: the node was reset (e.g. collapsed with `cache: false`,
-            // which dispatches `ResetNode`) or removed entirely while the fetch was in flight.
-            // `StartLoading` is the only action that sets `loading: true`, and `ResetNode` clears it,
-            // so a missing node or `loading === false` means this resolution no longer applies.
-            // Note: a plain collapse with `cache: true` keeps `loading: true`, so the fetch is
-            // still allowed to complete and populate the cache — that's intentional.
-            if (!currentNode || !currentNode.loading) {
+            // Ignore stale results. A result is stale when:
+            //   * the node was removed entirely, OR
+            //   * the node's `requestId` no longer matches the one captured at dispatch time
+            //     (i.e. `ResetNode` cleared it, or a newer `StartLoading` superseded it).
+            // The previous `loading`-only guard couldn't distinguish "still loading the original
+            // request" from "loading a second, newer request", which allowed an older response
+            // to overwrite a newer one after a collapse-expand cycle with `cache: false`.
+            // Note: a plain collapse with `cache: true` keeps `requestId` intact, so the fetch
+            // is still allowed to complete and populate the cache — that's intentional.
+            if (!currentNode || currentNode.requestId !== action.payload.requestId) {
                 return state;
             }
 
@@ -146,10 +157,8 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
         }
         case NavigationTreeActionType.ErrorLoading: {
             const currentNode = state[action.payload.path];
-            // Ignore stale errors: the node was reset (e.g. collapsed with `cache: false`,
-            // which dispatches `ResetNode`) or removed entirely while the fetch was in flight.
-            // See the matching note on `FinishLoading` above.
-            if (!currentNode || !currentNode.loading) {
+            // Ignore stale errors — see the matching note on `FinishLoading` above.
+            if (!currentNode || currentNode.requestId !== action.payload.requestId) {
                 return state;
             }
 
