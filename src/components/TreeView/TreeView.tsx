@@ -22,11 +22,11 @@ export interface TreeViewProps {
     additionalNodeElements?: JSX.Element;
     level?: number;
     /**
-     * Ref passed to the inner item element.
+     * Ref object passed to the inner item element.
      * Use this if you need to control scroll-into-view from a parent component
      * (e.g. `itemRef.current?.scrollIntoView({block: 'nearest'})`).
      */
-    itemRef?: React.Ref<HTMLDivElement>;
+    itemRef?: React.RefObject<HTMLDivElement>;
 }
 
 const TREE_LEVEL_CSS_VAR = '--ydb-tree-view-level';

@@ -35,10 +35,10 @@ export interface NavigationTreeNodeProps {
     renderAdditionalNodeElements?: NavigationTreeProps['renderAdditionalNodeElements'];
     cache?: boolean;
     /**
-     * Ref attached to the item element when this node is the active one.
+     * Ref object attached to the item element when this node is the active one.
      * Set only for the active node so the parent can scroll it into view.
      */
-    activeItemRef?: React.Ref<HTMLDivElement>;
+    activeItemRef?: React.RefObject<HTMLDivElement>;
 }
 
 function renderIcon(type: NavigationTreeNodeType, collapsed: boolean) {

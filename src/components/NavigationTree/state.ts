@@ -93,9 +93,12 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
             };
         case NavigationTreeActionType.FinishLoading: {
             const currentNode = state[action.payload.path];
-            // Ignore stale results: node was reset/collapsed (or removed) while the fetch was in flight.
+            // Ignore stale results: the node was reset (e.g. collapsed with `cache: false`,
+            // which dispatches `ResetNode`) or removed entirely while the fetch was in flight.
             // `StartLoading` is the only action that sets `loading: true`, and `ResetNode` clears it,
             // so a missing node or `loading === false` means this resolution no longer applies.
+            // Note: a plain collapse with `cache: true` keeps `loading: true`, so the fetch is
+            // still allowed to complete and populate the cache — that's intentional.
             if (!currentNode || !currentNode.loading) {
                 return state;
             }
@@ -143,7 +146,9 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
         }
         case NavigationTreeActionType.ErrorLoading: {
             const currentNode = state[action.payload.path];
-            // Ignore stale errors: node was reset/collapsed (or removed) while the fetch was in flight.
+            // Ignore stale errors: the node was reset (e.g. collapsed with `cache: false`,
+            // which dispatches `ResetNode`) or removed entirely while the fetch was in flight.
+            // See the matching note on `FinishLoading` above.
             if (!currentNode || !currentNode.loading) {
                 return state;
             }
