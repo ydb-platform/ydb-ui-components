@@ -22,7 +22,7 @@ export interface TreeViewProps {
     additionalNodeElements?: JSX.Element;
     level?: number;
     /**
-     * Ref forwarded to the inner item element.
+     * Ref passed to the inner item element.
      * Use this if you need to control scroll-into-view from a parent component
      * (e.g. `itemRef.current?.scrollIntoView({block: 'nearest'})`).
      */

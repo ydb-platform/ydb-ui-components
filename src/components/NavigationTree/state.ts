@@ -92,10 +92,18 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
                 },
             };
         case NavigationTreeActionType.FinishLoading: {
+            const currentNode = state[action.payload.path];
+            // Ignore stale results: node was reset/collapsed (or removed) while the fetch was in flight.
+            // `StartLoading` is the only action that sets `loading: true`, and `ResetNode` clears it,
+            // so a missing node or `loading === false` means this resolution no longer applies.
+            if (!currentNode || !currentNode.loading) {
+                return state;
+            }
+
             const newState: NavigationTreeState = {
                 ...state,
                 [action.payload.path]: {
-                    ...state[action.payload.path],
+                    ...currentNode,
                     loading: false,
                     loaded: Boolean(action.payload.data),
                     error: false,
@@ -133,16 +141,23 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
 
             return newState;
         }
-        case NavigationTreeActionType.ErrorLoading:
+        case NavigationTreeActionType.ErrorLoading: {
+            const currentNode = state[action.payload.path];
+            // Ignore stale errors: node was reset/collapsed (or removed) while the fetch was in flight.
+            if (!currentNode || !currentNode.loading) {
+                return state;
+            }
+
             return {
                 ...state,
                 [action.payload.path]: {
-                    ...state[action.payload.path],
+                    ...currentNode,
                     loading: false,
                     loaded: false,
                     error: true,
                 },
             };
+        }
         case NavigationTreeActionType.ResetNode:
             return {
                 ...state,
