@@ -121,6 +121,11 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
                     loading: false,
                     loaded: Boolean(action.payload.data),
                     error: false,
+                    // Clear the in-flight marker now that this request has completed.
+                    // The counter in `NavigationTree` only allocates ids >= 1, so any
+                    // late stale `FinishLoading` / `ErrorLoading` for this path will
+                    // still fail the guard above (its id > 0 won't match this 0).
+                    requestId: 0,
                 },
             };
 
@@ -169,6 +174,9 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
                     loading: false,
                     loaded: false,
                     error: true,
+                    // See note in `FinishLoading`: clear the in-flight id on completion
+                    // to keep `requestId === 0` ⇔ "no active request".
+                    requestId: 0,
                 },
             };
         }

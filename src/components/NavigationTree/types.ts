@@ -44,9 +44,12 @@ export interface NavigationTreeNodeState {
     level?: number;
     meta?: unknown;
     /**
-     * Monotonic id of the latest in-flight load for this node. Used to discard stale
-     * results: only a `FinishLoading` / `ErrorLoading` whose payload id matches this
-     * value is applied. `0` means there is no active request (default / after reset).
+     * Id of the in-flight load request for this node. Assigned by `StartLoading`,
+     * cleared back to `0` on `FinishLoading` / `ErrorLoading` / `ResetNode`, so
+     * `requestId === 0` always means "no active request". Used to discard stale
+     * results: a `FinishLoading` / `ErrorLoading` whose payload id does not match
+     * the current value is dropped (so a late response from a request superseded
+     * by `ResetNode` + a new `StartLoading` cannot overwrite the newer one).
      */
     requestId: number;
 }
