@@ -1,5 +1,16 @@
 # Changelog
 
+## [6.0.0](https://github.com/ydb-platform/ydb-ui-components/compare/v5.4.1...v6.0.0) (2026-05-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* scroll to active node ([#111](https://github.com/ydb-platform/ydb-ui-components/issues/111))
+
+### Features
+
+* scroll to active node ([#111](https://github.com/ydb-platform/ydb-ui-components/issues/111)) ([38613a1](https://github.com/ydb-platform/ydb-ui-components/commit/38613a10e1b28fb58c4ec7b3501e982676c32ed2))
+
 ## [5.4.1](https://github.com/ydb-platform/ydb-ui-components/compare/v5.4.0...v5.4.1) (2026-01-27)
 
 
