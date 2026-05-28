@@ -24,7 +24,6 @@ import type {NavigationTreeNodeType, NavigationTreeProps, NavigationTreeState} f
 
 export interface NavigationTreeNodeProps {
     path: string;
-    fetchPath: NavigationTreeProps['fetchPath'];
     activePath?: string;
     state: NavigationTreeState;
     level?: number;
@@ -35,6 +34,11 @@ export interface NavigationTreeNodeProps {
     onActionsOpenToggle?: NavigationTreeProps['onActionsOpenToggle'];
     renderAdditionalNodeElements?: NavigationTreeProps['renderAdditionalNodeElements'];
     cache?: boolean;
+    /**
+     * Ref object attached to the item element when this node is the active one.
+     * Set only for the active node so the parent can scroll it into view.
+     */
+    activeItemRef?: React.RefObject<HTMLDivElement>;
 }
 
 function renderIcon(type: NavigationTreeNodeType, collapsed: boolean) {
@@ -75,7 +79,6 @@ function renderIcon(type: NavigationTreeNodeType, collapsed: boolean) {
 
 export function NavigationTreeNode({
     path,
-    fetchPath,
     activePath,
     state,
     level,
@@ -86,54 +89,18 @@ export function NavigationTreeNode({
     onActionsOpenToggle,
     renderAdditionalNodeElements,
     cache,
+    activeItemRef,
 }: NavigationTreeNodeProps) {
     const nodeState = state[path];
 
     React.useEffect(() => {
-        if (nodeState.collapsed) {
-            if (!cache) {
-                dispatch({
-                    type: NavigationTreeActionType.ResetNode,
-                    payload: {path},
-                });
-            }
-
-            return;
-        }
-
-        if (nodeState.loaded || nodeState.loading || nodeState.error) {
-            return;
-        }
-
-        dispatch({
-            type: NavigationTreeActionType.StartLoading,
-            payload: {path},
-        });
-
-        fetchPath(path)
-            .then((data) => {
-                dispatch({
-                    type: NavigationTreeActionType.FinishLoading,
-                    payload: {path, activePath, data},
-                });
-            })
-            .catch((error) => {
-                dispatch({
-                    type: NavigationTreeActionType.ErrorLoading,
-                    payload: {path, error},
-                });
+        if (nodeState.collapsed && !cache) {
+            dispatch({
+                type: NavigationTreeActionType.ResetNode,
+                payload: {path},
             });
-    }, [
-        activePath,
-        cache,
-        dispatch,
-        fetchPath,
-        nodeState.collapsed,
-        nodeState.loaded,
-        nodeState.loading,
-        nodeState.error,
-        path,
-    ]);
+        }
+    }, [cache, dispatch, nodeState.collapsed, path]);
 
     const handleClick = React.useCallback(() => {
         if (onActivate) {
@@ -177,6 +144,7 @@ export function NavigationTreeNode({
             onArrowClick={handleArrowClick}
             onActionsOpenToggle={handleActionsOpenToggle}
             level={level}
+            itemRef={activeItemRef}
         >
             {children}
         </TreeView>

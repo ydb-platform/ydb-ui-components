@@ -21,6 +21,12 @@ export interface TreeViewProps {
     actions?: DropdownMenuItemMixed<any>[];
     additionalNodeElements?: JSX.Element;
     level?: number;
+    /**
+     * Ref object passed to the inner item element.
+     * Use this if you need to control scroll-into-view from a parent component
+     * (e.g. `itemRef.current?.scrollIntoView({block: 'nearest'})`).
+     */
+    itemRef?: React.Ref<HTMLDivElement>;
 }
 
 const TREE_LEVEL_CSS_VAR = '--ydb-tree-view-level';
@@ -41,6 +47,7 @@ export function TreeView({
     actions,
     additionalNodeElements,
     level,
+    itemRef,
 }: TreeViewProps) {
     const handleClick = React.useCallback<React.MouseEventHandler>(
         (event) => {
@@ -80,7 +87,11 @@ export function TreeView({
     return (
         <div className={b()} style={{[TREE_LEVEL_CSS_VAR]: level} as React.CSSProperties}>
             <div className="tree-view">
-                <div className={`${itemClassName} ${b('item', {active})}`} onClick={handleClick}>
+                <div
+                    ref={itemRef}
+                    className={`${itemClassName} ${b('item', {active})}`}
+                    onClick={handleClick}
+                >
                     <button
                         type="button"
                         className={`${arrowClassName} ${b('arrow', {

@@ -26,6 +26,8 @@ export type NavigationTreeAction =
           type: NavigationTreeActionType.StartLoading;
           payload: {
               path: string;
+              /** Monotonic id captured at dispatch time; written into node state. */
+              requestId: number;
           };
       }
     | {
@@ -34,6 +36,8 @@ export type NavigationTreeAction =
               path: string;
               activePath?: string;
               data: NavigationTreeDataItem[];
+              /** Id of the `StartLoading` this result belongs to; stale ones are dropped. */
+              requestId: number;
           };
       }
     | {
@@ -41,6 +45,8 @@ export type NavigationTreeAction =
           payload: {
               path: string;
               error: unknown;
+              /** Id of the `StartLoading` this error belongs to; stale ones are dropped. */
+              requestId: number;
           };
       }
     | {
@@ -57,6 +63,7 @@ export function getDefaultNodeState() {
         loaded: false,
         error: false,
         children: [],
+        requestId: 0,
     };
 }
 
@@ -89,16 +96,36 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
                     loaded: false,
                     error: false,
                     children: [],
+                    requestId: action.payload.requestId,
                 },
             };
         case NavigationTreeActionType.FinishLoading: {
+            const currentNode = state[action.payload.path];
+            // Ignore stale results. A result is stale when:
+            //   * the node was removed entirely, OR
+            //   * the node's `requestId` no longer matches the one captured at dispatch time
+            //     (i.e. `ResetNode` cleared it, or a newer `StartLoading` superseded it).
+            // The previous `loading`-only guard couldn't distinguish "still loading the original
+            // request" from "loading a second, newer request", which allowed an older response
+            // to overwrite a newer one after a collapse-expand cycle with `cache: false`.
+            // Note: a plain collapse with `cache: true` keeps `requestId` intact, so the fetch
+            // is still allowed to complete and populate the cache — that's intentional.
+            if (!currentNode || currentNode.requestId !== action.payload.requestId) {
+                return state;
+            }
+
             const newState: NavigationTreeState = {
                 ...state,
                 [action.payload.path]: {
-                    ...state[action.payload.path],
+                    ...currentNode,
                     loading: false,
                     loaded: Boolean(action.payload.data),
                     error: false,
+                    // Clear the in-flight marker now that this request has completed.
+                    // The counter in `NavigationTree` only allocates ids >= 1, so any
+                    // late stale `FinishLoading` / `ErrorLoading` for this path will
+                    // still fail the guard above (its id > 0 won't match this 0).
+                    requestId: 0,
                 },
             };
 
@@ -133,16 +160,26 @@ export function reducer(state: NavigationTreeState = {}, action: NavigationTreeA
 
             return newState;
         }
-        case NavigationTreeActionType.ErrorLoading:
+        case NavigationTreeActionType.ErrorLoading: {
+            const currentNode = state[action.payload.path];
+            // Ignore stale errors — see the matching note on `FinishLoading` above.
+            if (!currentNode || currentNode.requestId !== action.payload.requestId) {
+                return state;
+            }
+
             return {
                 ...state,
                 [action.payload.path]: {
-                    ...state[action.payload.path],
+                    ...currentNode,
                     loading: false,
                     loaded: false,
                     error: true,
+                    // See note in `FinishLoading`: clear the in-flight id on completion
+                    // to keep `requestId === 0` ⇔ "no active request".
+                    requestId: 0,
                 },
             };
+        }
         case NavigationTreeActionType.ResetNode:
             return {
                 ...state,

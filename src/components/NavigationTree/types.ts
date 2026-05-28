@@ -43,6 +43,15 @@ export interface NavigationTreeNodeState {
     children: string[];
     level?: number;
     meta?: unknown;
+    /**
+     * Id of the in-flight load request for this node. Assigned by `StartLoading`,
+     * cleared back to `0` on `FinishLoading` / `ErrorLoading` / `ResetNode`, so
+     * `requestId === 0` always means "no active request". Used to discard stale
+     * results: a `FinishLoading` / `ErrorLoading` whose payload id does not match
+     * the current value is dropped (so a late response from a request superseded
+     * by `ResetNode` + a new `StartLoading` cannot overwrite the newer one).
+     */
+    requestId: number;
 }
 
 export interface NavigationTreeServiceNode {
@@ -53,7 +62,7 @@ export interface NavigationTreeServiceNode {
 
 export type NavigationTreeNodePartialState = Omit<
     NavigationTreeNodeState,
-    'loading' | 'loaded' | 'error' | 'children'
+    'loading' | 'loaded' | 'error' | 'children' | 'requestId'
 >;
 
 export interface NavigationTreeProps<D = any, M = any> {
