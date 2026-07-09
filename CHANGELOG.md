@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.0](https://github.com/ydb-platform/ydb-ui-components/compare/v6.0.0...v6.1.0) (2026-07-09)
+
+
+### Features
+
+* add secret node type to NavigationTree ([#113](https://github.com/ydb-platform/ydb-ui-components/issues/113)) ([433f752](https://github.com/ydb-platform/ydb-ui-components/commit/433f752b406e42bca2d290be48bb0df93edd5132))
+
 ## [6.0.0](https://github.com/ydb-platform/ydb-ui-components/compare/v5.4.1...v6.0.0) (2026-05-28)
 
 
