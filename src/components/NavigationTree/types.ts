@@ -10,6 +10,7 @@ export type NavigationTreeNodeType =
     | 'external_table'
     | 'index_table'
     | 'index'
+    | 'secret'
     | 'stream'
     | 'system_table'
     | 'streaming_query'
