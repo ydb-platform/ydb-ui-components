@@ -6,6 +6,7 @@ export {ExternalTableIcon} from './ExternalTable';
 export {FolderIcon} from './Folder';
 export {FolderOpenIcon} from './FolderOpen';
 export {ResourcePoolIcon} from './ResourcePool';
+export {SecretIcon} from './Secret';
 export {TableIcon} from './Table';
 export {TableIndexIcon} from './TableIndex';
 export {TopicIcon} from './Topic';

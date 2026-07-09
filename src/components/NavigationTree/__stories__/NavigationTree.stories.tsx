@@ -209,6 +209,10 @@ async function fetchPath(path: string) {
                 name: 'resource_pool',
                 type: 'resource_pool',
             },
+            {
+                name: 'secret',
+                type: 'secret',
+            },
         ];
     }
 

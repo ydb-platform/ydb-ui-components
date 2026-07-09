@@ -10,6 +10,7 @@ import {
     FolderIcon,
     FolderOpenIcon,
     ResourcePoolIcon,
+    SecretIcon,
     StreamingQueryIcon,
     TableIcon,
     TableIndexIcon,
@@ -72,6 +73,8 @@ function renderIcon(type: NavigationTreeNodeType, collapsed: boolean) {
             return <ViewIcon />;
         case 'resource_pool':
             return <ResourcePoolIcon />;
+        case 'secret':
+            return <SecretIcon />;
         default:
             return null;
     }
